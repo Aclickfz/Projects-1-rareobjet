@@ -1,0 +1,133 @@
+.categories_wrapper {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.categories_wrapper__left {
+    position: sticky;
+    top: 2rem;
+}
+
+.categories_wrapper__left h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: .0125rem;
+    line-height: 1.19;
+    color: var(--black-color);
+}
+
+.categories-list {
+    margin-top: 2rem;
+}
+
+.categories-list a {
+    color: var(--black-color);
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categories-list a i {
+    font-size: 24px;
+}
+
+.categories_wrapper__box {
+    margin-bottom: 2rem;
+}
+
+.categories_wrapper__box img {
+    width: 100%;
+    object-fit: cover;
+    height: 500px;
+}
+
+.categories_wrapper__box a:hover {
+    text-decoration: underline !important;
+    color: var(--black-color) !important;
+}
+
+.categories_wrapper__box a {
+    color: var(--black-color);
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+
+.hide-show {
+    display: none;
+}
+
+.categories-list a i {
+    display: none;
+}
+
+@media(max-width:992px) {
+    .categories-list a i {
+        display: block;
+    }
+
+    .categories_wrapper__flex {
+        flex-direction: column-reverse;
+    }
+
+    .hide-show {
+        display: block;
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: .0125rem;
+        line-height: 1.19;
+        color: var(--black-color);
+        margin-bottom: 1rem !important;
+        text-transform: capitalize;
+    }
+
+    .categories_wrapper__left h3 {
+        display: none;
+    }
+
+    .categories-list:last-child,
+    .categories-list:first-child {
+        display: none;
+    }
+
+    .hide-list {
+        display: none;
+    }
+
+    .categories-list a {
+        border-top: 1px solid #ddd;
+        padding: 8px 0;
+        margin-top: 0;
+    }
+
+}
+
+@media(max-width:768px) {
+    .categories_wrapper {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .categories_wrapper__box img {
+        height: 300px;
+    }
+
+    .hide-show {
+        font-size: 24px;
+    }
+
+    .categories_wrapper__box {
+        margin-bottom: 1rem;
+    }
+
+    .categories_wrapper__box a {
+        display: block;
+        margin-top: 6px;
+    }
+
+    .related_search {
+        padding-top: 0;
+    }
+}

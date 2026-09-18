@@ -1,0 +1,155 @@
+.payment_wrapper {
+    padding: 70px 0;
+}
+
+.payment_left {
+    padding: 2rem;
+    background-color: whitesmoke;
+}
+
+.payment_left h3 {
+    text-transform: capitalize;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 1rem !important;
+}
+
+.form_input {
+    display: flex;
+    gap: 1rem;
+}
+
+.form_input input,
+.form_input textarea {
+    width: 100%;
+    padding: 10px;
+}
+
+.form_input {
+    margin-bottom: 1rem;
+}
+
+.form_input button {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.notes {
+    display: flex !important;
+    flex-direction: column;
+}
+
+.form_input button {
+    border: 1px solid var(--main-color);
+}
+
+.payment_img {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.customer_product img {
+    height: 120px;
+    width: 120px;
+    object-position: top;
+    object-fit: cover;
+}
+
+.payment_right {
+    padding-left: 3rem;
+}
+
+.product_name h6 {
+    max-width: 300px;
+    line-height: 24px;
+}
+
+.product_price h3 {
+    margin-top: 7px;
+    color: var(--main-color);
+    font-weight: 600;
+    font-size: 26px;
+}
+
+.subtotal {
+    margin-top: 2rem;
+}
+
+.subtotal_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.subtotal_box p {
+    text-transform: capitalize;
+}
+
+.subtotal_box h6 {
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.customer_product {
+    position: relative;
+}
+
+.cart_number {
+    position: absolute;
+    top: -15px;
+    right: -5px;
+}
+
+.cart_number p {
+    background-color: var(--main-color);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    color: var(--white-color);
+}
+
+@media(max-width:992px) {
+    .payment_right {
+        padding-left: 0;
+        margin-top: 2rem;
+    }
+}
+
+@media(max-width:768px) {
+    .payment_wrapper {
+        padding: 40px 0;
+    }
+
+    .payment_left {
+        padding: 1.2rem;
+    }
+
+    .payment_left h3,
+    .product_price h3 {
+        font-size: 22px;
+    }
+
+    .subtotal_box h6 {
+        font-size: 1rem;
+    }
+
+    .subtotal_box p,
+    .cart_number p {
+        font-size: 14px;
+    }
+
+    .subtotal_box {
+        margin-bottom: 10px;
+    }
+
+    .product_name h6 {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}

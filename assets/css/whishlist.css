@@ -1,0 +1,115 @@
+.whislist_section {
+    padding: 40px 0;
+}
+
+.whishlist_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.whishlist_header__left h6 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 1.2;
+    color: #010101;
+    margin-bottom: 0;
+    letter-spacing: .125rem;
+}
+
+.whishlist_header__left p {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.whishlist_header__right a {
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1rem;
+    font-family: "TT-Norms-Pro", "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: .125rem;
+    border: none;
+    border-radius: 0;
+    background: #010101;
+    color: #fff;
+    padding: .75rem;
+}
+
+.whishlist_content {
+    margin-top: 3rem;
+}
+
+.whishlist-box {
+    margin-bottom: 2rem;
+}
+
+.whishlist-box-img img {
+    width: 100%;
+    height: 305px;
+    object-fit: cover;
+}
+
+.whishlist-box-content p {
+    font-size: .875rem;
+    font-family: inherit;
+    color: #000;
+    margin: .75rem 0 !important;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 2.4rem;
+    text-transform: capitalize;
+}
+
+.whishlist-box-content a {
+    align-items: center;
+    background-color: #010101;
+    border-color: #010101;
+    border-radius: 0;
+    border-width: 1px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-size: .875rem;
+    font-weight: 600;
+    justify-content: center;
+    letter-spacing: .099rem;
+    min-height: 2.625rem;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    padding: .625rem .5rem .375rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    /* width: 13rem !important; */
+    text-underline-offset: 0;
+    transition: background-color .25s ease, border-color .25s ease, color .25s ease;
+    width: 100%;
+}
+
+.whishlist-box-content a:hover {
+    background-color: #333333;
+    color: #fff;
+}
+
+.whishlist-box-img {
+    position: relative;
+}
+
+@media(max-width:768px) {
+    .whishlist-box-img img {
+        height: 250px;
+    }
+
+    .whishlist-box-content a,
+    .whishlist_header__right a {
+
+        font-size: 14px;
+    }
+}

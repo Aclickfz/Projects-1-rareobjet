@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustAclick</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sweiper.css">
+    <link rel="stylesheet" href="assets/css/contract.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+     <!-- Favicon for most browsers -->
+     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/Logo/favicon/favicon-32x32.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/Logo/favicon/favicon-16x16.png">
+     <link rel="icon" type="image/x-icon" href="assets/images/Logo/favicon/favicon.ico">
+ 
+     <!-- Apple Touch Icon (for iOS devices) -->
+     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/Logo/favicon/apple-touch-icon.png">
+ 
+     <!-- Android Icon -->
+     <link rel="icon" type="image/png" sizes="144x144" href="assets/images/Logo/favicon/android-icon-144x144.png">
+ 
+     <!-- Web App Manifest (for Progressive Web Apps) -->
+     <link rel="manifest" href="assets/images/Logo/favicon/site.webmanifest">
+</head>
+
+<body>
+    <div class="myNav">
+        <div class="container-fluid">
+            <div class="myNav_content active">
+                <div class="mob-icon">
+                    <div class="menu_icon">
+                        <i class='bx bx-menu'></i>
+                    </div>
+                    <div class="search-icon">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Search">
+                    <div class="search-btn">
+                        <button>
+                            <i class='bx bx-search'></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="search--input">
+                    <div class="search--input-box">
+                        <input type="text" placeholder="Search here...">
+                        <button><i class='bx bx-search'></i></button>
+                    </div>
+                </div>
+                <div class="logo">
+                    <a href="#">
+                        <img src="./assets/images/Logo/Logo1.svg" class="img-fluid" alt="JustAclick">
+                    </a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="login.html"><i class='bx bx-user-circle'></i>account</a></li>
+                        <li><a href="#"><img src="assets/images/cart.svg" class="img-fluid" alt="cart"> track order</a>
+                        </li>
+                        <li><a href="#"><img src="assets/images/recents.png" class="img-fluid" alt="recents">recents</a>
+                        </li>
+                        <li class="cart-no"><a href="whishlist.html"><img src="assets/images/favorites.png"
+                                    class="img-fluid" alt="recents">favorites</a>
+                            <span>(6)</span>
+                        </li>
+                        <li class="cart-no"><a href="cart.html"><img src="assets/images/cartnew.png" class="img-fluid"
+                                    alt="cart">cart
+                            </a>
+                            <span>(2)</span>
+                        </li>
+                    </ul>
+                    <div class="menu_mob">
+                        <div class="user">
+                            <a href="login.html"><i class='bx bx-user-circle'></i>
+                            </a>
+                        </div>
+                        <div class="cart">
+                            <a href="cart.html">
+                                <i class='bx bx-cart'></i>
+                                <span>(2)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="bottom-menu">
+            <ul>
+                <li class="dropmenu">
+                    <a href="#">Furniture</a>
+                    <div class="dropmenu_list">
+                        <a href="#">shop all furniture</a>
+                        <a href="#">new & featured</a>
+                        <a href="#">living room furniture</a>
+                        <a href="#">bedroom furniture</a>
+                        <a href="#">dining & kitchen furniture</a>
+                        <a href="#">storage and modaltas furniture</a>
+                        <a href="#">best selling furniture</a>
+                    </div>
+                </li>
+                <li class="dropmenu"><a href="#">lighting</a>
+                    <div class="dropmenu_list">
+                        <a href="#">shop all lighting</a>
+                        <a href="#">new lighting</a>
+                        <a href="#">table & hoorlamp</a>
+                        <a href="#">bedroom furniture</a>
+                        <a href="#">dining & kitchen furniture</a>
+                        <a href="#">storage and modaltas furniture</a>
+                        <a href="#">best selling furniture</a>
+                    </div>
+                </li>
+                <li class="dropmenu"><a href="#">delos & mirrors</a>
+                    <div class="dropmenu_list">
+                        <a href="#">shop all lighting</a>
+                        <a href="#">new lighting</a>
+                        <a href="#">table & hoorlamp</a>
+                        <a href="#">bedroom furniture</a>
+                        <a href="#">dining & kitchen furniture</a>
+                        <a href="#">storage and modaltas furniture</a>
+                        <a href="#">best selling furniture</a>
+                    </div>
+                </li>
+                <li class="dropmenu"><a href="#">tabletop & kitchen</a>
+                    <div class="dropmenu_list">
+                        <a href="#">shop all lighting</a>
+                        <a href="#">new lighting</a>
+                        <a href="#">table & hoorlamp</a>
+                        <a href="#">bedroom furniture</a>
+                        <a href="#">dining & kitchen furniture</a>
+                        <a href="#">storage and modaltas furniture</a>
+                        <a href="#">best selling furniture</a>
+                    </div>
+                </li>
+                <li class="dropmenu"><a href="#">Home utility & essentials</a>
+                    <div class="dropmenu_list">
+                        <a href="#">shop all lighting</a>
+                        <a href="#">new lighting</a>
+                        <a href="#">table & hoorlamp</a>
+                        <a href="#">bedroom furniture</a>
+                        <a href="#">dining & kitchen furniture</a>
+                        <a href="#">storage and modaltas furniture</a>
+                        <a href="#">best selling furniture</a>
+                    </div>
+                </li>
+                <li class="dropmenu"><a href="#">gifts</a>
+                    <div class="dropmenu_list">
+                        <a href="#">shop all lighting</a>
+                        <a href="#">new lighting</a>
+                        <a href="#">table & hoorlamp</a>
+                        <a href="#">bedroom furniture</a>
+                        <a href="#">dining & kitchen furniture</a>
+                        <a href="#">storage and modaltas furniture</a>
+                        <a href="#">best selling furniture</a>
+                    </div>
+                </li>
+                <li class="dropmenu"><a href="#">sale</a>
+
+                </li>
+            </ul>
+        </div>
+        <div class="offer">
+            <div class="container">
+                <div class="offer_info">
+                    <p>Free Shipping on 1000s of Items <a href="#">shop now ›</a></p>
+                    <p>The Halloween Shop <a href="#"> Selling Scary Fast ›</a></p>
+                    <p>In-Stock Furniture <a href="#"> Delivered in 1-5 Weeks ›</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- mobile nav -->
+        <div class="mobile_nav">
+            <div class="mobile_nav__content">
+                <div class="mobile_header">
+                    <div class="close-icon">
+                        <i class='bx bx-x'></i>
+                    </div>
+                </div>
+                <div class="mobile_menu">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="about-us.html">About</a></li>
+                        <li class="dropBtn"><a href="#">furniture <i class='bx bx-chevron-right'></i></a>
+                            <div class="megaDrop">
+                                <a href="#">shop all furniture</a>
+                                <a href="#">new & featured</a>
+                                <a href="#">living room furniture</a>
+                                <a href="#">bedroom furniture</a>
+                                <a href="#">dining & kitchen furniture</a>
+                                <a href="#">storage and modaltas furniture</a>
+                                <a href="#">best selling furniture</a>
+                            </div>
+                        </li>
+                        <li class="dropBtn"><a href="#">lighting <i class='bx bx-chevron-right'></i></a>
+                            <div class="megaDrop">
+                                <a href="#">shop all furniture</a>
+                                <a href="#">new & featured</a>
+                                <a href="#">living room furniture</a>
+                                <a href="#">bedroom furniture</a>
+                                <a href="#">dining & kitchen furniture</a>
+                                <a href="#">storage and modaltas furniture</a>
+                                <a href="#">best selling furniture</a>
+                            </div>
+                        </li>
+                        <li class="dropBtn"><a href="#">delos & mirrors <i class='bx bx-chevron-right'></i></a>
+                            <div class="megaDrop">
+                                <a href="#">shop all furniture</a>
+                                <a href="#">new & featured</a>
+                                <a href="#">living room furniture</a>
+                                <a href="#">bedroom furniture</a>
+                                <a href="#">dining & kitchen furniture</a>
+                                <a href="#">storage and modaltas furniture</a>
+                                <a href="#">best selling furniture</a>
+                            </div>
+                        </li>
+                        <li class="dropBtn"><a href="#">tabletop & kitchen <i class='bx bx-chevron-right'></i></a>
+                            <div class="megaDrop">
+                                <a href="#">shop all furniture</a>
+                                <a href="#">new & featured</a>
+                                <a href="#">living room furniture</a>
+                                <a href="#">bedroom furniture</a>
+                                <a href="#">dining & kitchen furniture</a>
+                                <a href="#">storage and modaltas furniture</a>
+                                <a href="#">best selling furniture</a>
+                            </div>
+                        </li>
+                        <li class="dropBtn"><a href="#">Home utility & essentials <i
+                                    class='bx bx-chevron-right'></i></a></li>
+                        <li class="dropBtn"><a href="#">sale</a></li>
+                        <li><a href="contact-us.html">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- contact box -->
+    <section class="contact_details">
+        <div class="container">
+            <div class="contact_details__content">
+                <h3>contact us</h3>
+                <p>Couldn't find what you were looking for? Have a great idea for a new product? We value your feedback
+                    and want to hear from you. To let us know how we can improve your shopping experience, or to ask a
+                    specific question about your order, find our contact information below.</p>
+                <div class="contact-table">
+                    <table class="int-contact-info" summary="International Contact Information">
+                        <tbody>
+                            <tr>
+                                <td class="int-contact-info_td">
+                                    <p> United States, US Territories, and AFP/FPO</p>
+                                </td>
+                                <td class="int-contact-info_td">
+                                    <p> 1.888.779.5176</p>
+                                    <p>Fax 1.702.363.2541</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="int-contact-info_td">
+                                    <p> Canada</p>
+                                </td>
+                                <td class="int-contact-info_td">
+                                    <p> 1.855.860.1079</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="int-contact-info_td">
+                                    <p> Australia</p>
+                                </td>
+                                <td class="int-contact-info_td">
+                                    <p> 0011 800 15002222</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="int-contact-info_td">
+                                    <p> All Other Countries</p>
+                                </td>
+                                <td class="int-contact-info_td">
+                                    <p> +800.15002222</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mail-add">
+                    <strong>Mailing Address</strong>
+                    <p>JustAclick</p>
+                    <p> 151 Union St.</p>
+                    <p>San Francisco, CA 94111</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <div class="footer_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-sm-4">
+                        <div class="footer_wrapper__box">
+                            <h6>Customer Service</h6>
+                            <div class="footer_links">
+                                <a href="#">Contact Us</a>
+                                <a href="#">Track Your Order</a>
+                                <a href="#"> Returns & Exchanges</a>
+                                <a href="#">Shipping Information</a>
+                                <a href="#">International Orders</a>
+                                <a href="#">Email Preferences</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-4">
+                        <div class="footer_wrapper__box">
+                            <h6>About Us</h6>
+                            <div class="footer_links">
+                                <a href="#">Our Story</a>
+                                <a href="#">Careers</a>
+                                <a href="#"> Press</a>
+                                <a href="#">Influencers</a>
+                                <a href="#">Find a Store</a>
+                                <h6>Business to Business</h6>
+                                <a href="#">Overview</a>
+                                <a href="#">Trade</a>
+                                <a href="#">Contact</a>
+                                <a href="#">Corporate Gifting</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-4">
+                        <div class="footer_wrapper__box">
+                            <h6>Design Services</h6>
+                            <div class="footer_links">
+                                <a href="#">Free Interior Design</a>
+                                <a href="#">Room Planner</a>
+                                <h6>Resources</h6>
+                                <a href="#"> JustAclick Credit Card</a>
+                                <a href="#"> Pay Bill Online</a>
+                                <a href="#"> View Online CatalogOrders</a>
+                                <a href="#">Request a Catalog</a>
+                                <a href="#">Address Change</a>
+                                <a href="#">Gift Cards</a>
+                                <a href="#"> Do Not Sell Or Share My Personal Information</a>
+                                <h6>Shopping App</h6>
+                                <a href="#">"Everything you love about shopping with us, all in one convenient
+                                    place."</a>
+                                <img src="assets/images/AppStoreDownload.svg" class="img-fluid" alt="app-store">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-12">
+                        <div class="footer_wrapper__box footer_email">
+                            <h6>Join our VIP list for inspiration, new arrivals & more.</h6>
+                            <div class="footer_input">
+                                <input type="email" placeholder="ENTER YOUR EMAIL">
+                                <button>Sign up</button>
+                            </div>
+                            <span>UAE residents, please see the Financial Incentive Terms for terms. </span>
+                            <div class="follow">
+                                <h6>follow us</h6>
+                                <div class="follow_links">
+                                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                                    <a href="#"><i class='bx bxl-pinterest'></i></a>
+                                    <a href="#"><i class='bx bxl-youtube'></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>© 2025 JustAclick, Inc. All Rights Reserved |
+                    <a href="#"> Terms & Conditions |</a>
+                    <a href="#"> Accessibility |</a>
+                    <a href="#"> Privacy Policy |</a>
+                    <a href="#"> Legal Statement </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</body>
+
+</html>

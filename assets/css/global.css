@@ -12,6 +12,10 @@ html,
 body {
     overflow-x: hidden;
     max-width: 100%;
+    color: var(--black-color);
+    background: var(--white-color);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 @font-face {
@@ -24,6 +28,14 @@ body {
     --black-color: #101010;
     --white-color: #fff;
     --main-color: #212844;
+    --surface-color: #f8f8f6;
+    --muted-color: #6b6b68;
+    --border-color: #e7e5e0;
+    --accent-color: #b97a56;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --shadow-soft: 0 10px 30px rgba(16, 16, 16, 0.08);
+    --transition-fast: 180ms ease;
 }
 
 h1,
@@ -58,6 +70,26 @@ button {
     border: none;
     outline: none;
     background-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
 
 .global_btn {

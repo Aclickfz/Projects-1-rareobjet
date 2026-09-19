@@ -1,5 +1,6 @@
 .sign_wrapper {
-    padding: 80px 0;
+    padding: clamp(3.5rem, 8vw, 7rem) 0;
+    background: linear-gradient(135deg, #faf9f6 0%, #f2eee8 100%);
 }
 
 .sign_wrapper__content {
@@ -7,37 +8,85 @@
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 560px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
 }
 
-.sign_wrapper__content h6 {
-    font-size: 24px;
+.sign_intro {
+    margin-bottom: 1.75rem;
 }
 
-.sign_wrapper__content p {
-    font-size: 15px;
-    margin-top: 10px;
+.sign_eyebrow {
+    display: block;
+    margin-bottom: 0.65rem;
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.sign_intro h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+}
+
+.sign_intro p,
+.sign--up p {
+    margin-top: 0.65rem;
+    color: var(--muted-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .sign_input {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
+}
+
+.sign_input label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--black-color);
+    font-size: 0.85rem;
+    font-weight: 700;
 }
 
 .sign_input input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #131313;
+    min-height: 3rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: #fff;
     outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.sign_input button {
-    background-color: #131313;
-    color: #fff;
+.sign_input input:focus {
+    border-color: var(--black-color);
+    box-shadow: 0 0 0 3px rgba(16, 16, 16, 0.08);
+}
+
+.sign_submit {
     width: 100%;
-    display: block;
-    padding: 12px;
-    text-transform: capitalize;
-    font-size: 18px;
+    min-height: 3rem;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--black-color);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.sign_submit:hover {
+    background-color: var(--main-color);
+    transform: translateY(-2px);
 }
 
 .remeber {
@@ -55,6 +104,7 @@
 .sign--up a {
     color: #131313;
     text-decoration: underline !important;
+    font-weight: 700;
 }
 
 .sign--up a:hover {
@@ -67,18 +117,6 @@
 
 @media(max-width:768px) {
     .sign_wrapper {
-        padding: 50px 0;
-    }
-
-    .sign_wrapper__content h6 {
-        font-size: 20px;
-    }
-
-    .sign_wrapper__content p {
-        margin-top: 5px;
-    }
-
-    .sign_input input {
-        padding: 9px;
+        padding: 2rem 0;
     }
 }

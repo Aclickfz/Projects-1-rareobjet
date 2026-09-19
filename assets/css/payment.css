@@ -4,7 +4,10 @@
 
 .payment_left {
     padding: 2rem;
-    background-color: whitesmoke;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--surface-color);
+    box-shadow: 0 4px 16px rgba(16, 16, 16, 0.04);
 }
 
 .payment_left h3 {
@@ -23,6 +26,16 @@
 .form_input textarea {
     width: 100%;
     padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form_input input:focus,
+.form_input textarea:focus {
+    border-color: var(--black-color);
+    box-shadow: 0 0 0 3px rgba(16, 16, 16, 0.08);
 }
 
 .form_input {
@@ -58,6 +71,7 @@
 
 .payment_right {
     padding-left: 3rem;
+    padding-top: 1rem;
 }
 
 .product_name h6 {

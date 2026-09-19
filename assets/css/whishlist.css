@@ -46,12 +46,28 @@
 
 .whishlist-box {
     margin-bottom: 2rem;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--white-color);
+    box-shadow: 0 4px 16px rgba(16, 16, 16, 0.04);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.whishlist-box:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
 }
 
 .whishlist-box-img img {
     width: 100%;
     height: 305px;
     object-fit: cover;
+    transition: transform 400ms ease;
+}
+
+.whishlist-box:hover .whishlist-box-img img {
+    transform: scale(1.03);
 }
 
 .whishlist-box-content p {
@@ -98,11 +114,38 @@
     color: #fff;
 }
 
+.whishlist-box-content {
+    padding: 0 1rem 1rem;
+}
+
+.heart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 4px 14px rgba(16, 16, 16, 0.12);
+    transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.heart:hover {
+    color: var(--accent-color);
+    transform: scale(1.08);
+}
+
 .whishlist-box-img {
     position: relative;
 }
 
 @media(max-width:768px) {
+    .whishlist_header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
     .whishlist-box-img img {
         height: 250px;
     }

@@ -1,59 +1,65 @@
-window.addEventListener("scroll", function () {
-    var header = this.document.querySelector(".myNav_content");
-    header.classList.toggle("sticky", this.window.scrollY > 0);
-});
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.myNav_content');
+    const menuButton = document.querySelector('.menu_icon');
+    const mobileNav = document.querySelector('.mobile_nav');
+    const closeButton = document.querySelector('.close-icon');
+    const searchButton = document.querySelector('.search-icon');
+    const searchBox = document.querySelector('.search--input');
 
+    const setMenuState = (isOpen) => {
+        if (!mobileNav) return;
+        mobileNav.classList.toggle('active', isOpen);
+        mobileNav.setAttribute('aria-hidden', String(!isOpen));
+        document.body.classList.toggle('nav-open', isOpen);
+    };
 
+    if (header) {
+        const updateHeader = () => header.classList.toggle('sticky', window.scrollY > 8);
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        updateHeader();
+    }
 
-var menu = document.querySelector('.menu_icon');
-var navbar = document.querySelector('.mobile_nav');
-var cancelMenu = document.querySelector('.close-icon')
-menu.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-});
-cancelMenu.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-});
+    menuButton?.addEventListener('click', () => setMenuState(true));
+    closeButton?.addEventListener('click', () => setMenuState(false));
+    mobileNav?.addEventListener('click', (event) => {
+        if (event.target === mobileNav) setMenuState(false);
+    });
 
-// search mobile
-var searchBtn = document.querySelector('.search-icon');
-var searchBox = document.querySelector('.search--input');
-searchBtn.addEventListener('click', () => {
-    searchBox.classList.toggle('show');
-});
+    searchButton?.addEventListener('click', () => {
+        if (!searchBox) return;
+        searchBox.classList.toggle('show');
+        if (searchBox.classList.contains('show')) {
+            searchBox.querySelector('input')?.focus();
+        }
+    });
 
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            setMenuState(false);
+            searchBox?.classList.remove('show');
+        }
+    });
 
-var megaDrops = document.querySelectorAll('.dropBtn');
-
-for (var i = 0; i < megaDrops.length; i++) {
-    megaDrops[i].addEventListener('click', function () {
-        // First, remove the 'megaDrop_active' class from all .dropBtn elements
-        megaDrops.forEach(function (btn) {
-            btn.classList.remove('megaDrop_active');
+    document.querySelectorAll('.dropBtn').forEach((button) => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.dropBtn').forEach((item) => {
+                if (item !== button) item.classList.remove('megaDrop_active');
+            });
+            button.classList.toggle('megaDrop_active');
         });
-
-        // Then, toggle the 'megaDrop_active' class on the clicked button
-        this.classList.toggle('megaDrop_active');
     });
-}
 
-
-// Get all elements with the class 'megadropBtn'
-const dropdownButtons = document.querySelectorAll('.megadropBtn');
-
-dropdownButtons.forEach(button => {
-    button.addEventListener('click', function () {
-        // Remove 'active' class from all .megadropBtn elements
-        dropdownButtons.forEach(btn => btn.classList.remove('active'));
-
-        // Add 'active' class to the clicked button
-        this.classList.add('active');
+    document.querySelectorAll('.megadropBtn').forEach((button) => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.megadropBtn').forEach((item) => {
+                if (item !== button) item.classList.remove('active');
+            });
+            button.classList.toggle('active');
+        });
     });
 });
-
-
 
 function myFunction(smallImg) {
-    var fullImg = document.getElementById("imgBox");
-    fullImg.src = smallImg.src;
+    const fullImg = document.getElementById('imgBox');
+    if (fullImg && smallImg) fullImg.src = smallImg.src;
 }

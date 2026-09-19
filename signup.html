@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustAclick</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#101010'
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/login.css">
@@ -254,26 +266,32 @@
     <section class="global_section sign_wrapper">
         <div class="container">
             <div class="sign_wrapper__content">
-                <h6>Sign Up or Create an Account</h6>
-                <p>Enter your email address to get started.</p>
-                <div class="sign_input">
-                    <input type="text" placeholder="Name">
+                <div class="sign_intro">
+                    <span class="sign_eyebrow">Join JustAclick</span>
+                    <h1>Create your account</h1>
+                    <p>Save favorites, track orders, and enjoy a faster checkout.</p>
                 </div>
-                <div class="sign_input">
-                    <input type="email" placeholder="Email">
-                </div>
-                <div class="sign_input">
-                    <input type="text" placeholder="Password">
-                </div>
-                <div class="remeber">
-                    <input type="checkbox" id="checkbox" name="checkbox">
-                    <label for="checkbox" name="checkbox">remeber me</label>
-                </div>
-                <div class="sign_input">
-                    <button>Submit</button>
-                </div>
+                <form class="sign_form" action="#" method="post">
+                    <div class="sign_input">
+                        <label for="name">Full name</label>
+                        <input id="name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="sign_input">
+                        <label for="email">Email address</label>
+                        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="sign_input">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Create a password" required>
+                    </div>
+                    <div class="remeber">
+                        <input type="checkbox" id="checkbox" name="terms" required>
+                        <label for="checkbox">I agree to the terms</label>
+                    </div>
+                    <button class="sign_submit" type="submit">Create account</button>
+                </form>
                 <div class="sign--up">
-                    <p>Already have an account <a href="login.html">Sign In</a></p>
+                    <p>Already have an account? <a href="login.html">Sign in</a></p>
                 </div>
             </div>
         </div>

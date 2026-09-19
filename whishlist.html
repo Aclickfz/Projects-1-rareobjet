@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustAclick</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#101010'
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/sweiper.css">
@@ -43,62 +55,57 @@
 <body>
     <div class="myNav">
         <div class="container-fluid">
-            <div class="myNav_content active">
-                <div class="mob-icon">
-                    <div class="menu_icon">
+            <div class="myNav_content active flex items-center justify-between gap-3 lg:gap-6 py-3 lg:py-4">
+                <div class="mob-icon flex items-center gap-3 lg:hidden">
+                    <div class="menu_icon flex h-10 w-10 items-center justify-center rounded-full text-xl text-stone-800">
                         <i class='bx bx-menu'></i>
                     </div>
-                    <div class="search-icon">
+                    <div class="search-icon flex h-10 w-10 items-center justify-center rounded-full text-xl text-stone-800">
                         <i class='bx bx-search'></i>
                     </div>
                 </div>
-                <div class="search">
-                    <input type="text" placeholder="Search">
-                    <div class="search-btn">
-                        <button>
+
+                <div class="search hidden flex-1 lg:flex lg:max-w-[26rem] xl:max-w-[30rem]">
+                    <label class="search-field flex w-full items-center overflow-hidden rounded-full border border-stone-300 bg-white shadow-sm">
+                        <input type="text" placeholder="Search" class="w-full border-0 bg-transparent px-4 py-2.5 text-sm text-stone-700 outline-none placeholder:text-stone-400">
+                        <button type="button" aria-label="Search button" class="flex h-11 w-11 shrink-0 items-center justify-center text-lg text-stone-800">
                             <i class='bx bx-search'></i>
                         </button>
-                    </div>
+                    </label>
                 </div>
+
                 <div class="search--input">
                     <div class="search--input-box">
                         <input type="text" placeholder="Search here...">
-                        <button><i class='bx bx-search'></i></button>
+                        <button type="button" aria-label="Search button"><i class='bx bx-search'></i></button>
                     </div>
                 </div>
-                <div class="logo">
-                    <a href="#">
-                        <img src="./assets/images/Logo/Logo1.svg" class="img-fluid" alt="JustAclick">
+
+                <div class="logo flex flex-1 items-center justify-center lg:flex-none">
+                    <a href="index.html" aria-label="Go to home page" class="block w-[150px] sm:w-[180px] lg:w-[240px] xl:w-[270px]">
+                        <img src="./assets/images/Logo/Logo1.svg" class="h-auto w-full object-contain" alt="JustAclick">
                     </a>
                 </div>
-                <div class="menu">
-                    <ul>
-                        <li><a href="login.html"><i class='bx bx-user-circle'></i>account</a></li>
-                        <li><a href="#"><img src="assets/images/cart.svg" class="img-fluid" alt="cart"> track order</a>
-                        </li>
-                        <li><a href="#"><img src="assets/images/recents.png" class="img-fluid" alt="recents">recents</a>
-                        </li>
-                        <li class="cart-no"><a href="whishlist.html"><img src="assets/images/favorites.png"
-                                    class="img-fluid" alt="recents">favorites</a>
-                            <span>(6)</span>
-                        </li>
-                        <li class="cart-no"><a href="cart.html"><img src="assets/images/cartnew.png" class="img-fluid"
-                                    alt="cart">cart
-                            </a>
-                            <span>(2)</span>
-                        </li>
+
+                <div class="menu hidden lg:flex lg:items-center lg:justify-end">
+                    <ul class="flex items-center gap-4 xl:gap-6">
+                        <li><a href="login.html" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><i class='bx bx-user-circle text-lg'></i>account</a></li>
+                        <li><a href="#" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/cart.svg" class="h-4 w-4 object-contain" alt="cart"> track order</a></li>
+                        <li><a href="#" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/recents.png" class="h-4 w-4 object-contain" alt="recents">recents</a></li>
+                        <li class="cart-no relative"><a href="whishlist.html" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/favorites.png" class="h-4 w-4 object-contain" alt="recents">favorites</a><span class="absolute -right-2 -top-1 text-[10px] text-stone-700">(6)</span></li>
+                        <li class="cart-no relative"><a href="cart.html" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/cartnew.png" class="h-4 w-4 object-contain" alt="cart">cart</a><span class="absolute -right-2 -top-1 text-[10px] text-stone-700">(2)</span></li>
                     </ul>
-                    <div class="menu_mob">
-                        <div class="user">
-                            <a href="login.html"><i class='bx bx-user-circle'></i>
-                            </a>
-                        </div>
-                        <div class="cart">
-                            <a href="cart.html">
-                                <i class='bx bx-cart'></i>
-                                <span>(2)</span>
-                            </a>
-                        </div>
+                </div>
+
+                <div class="menu_mob flex items-center gap-3 lg:hidden">
+                    <div class="user flex h-10 w-10 items-center justify-center rounded-full text-stone-800">
+                        <a href="login.html"><i class='bx bx-user-circle text-[26px]'></i></a>
+                    </div>
+                    <div class="cart relative flex h-10 w-10 items-center justify-center rounded-full text-stone-800">
+                        <a href="cart.html" class="relative flex items-center justify-center">
+                            <i class='bx bx-cart text-[26px]'></i>
+                            <span class="absolute -right-2 -top-2 rounded-full bg-stone-900 px-1.5 py-0.5 text-[10px] text-white">(2)</span>
+                        </a>
                     </div>
                 </div>
 

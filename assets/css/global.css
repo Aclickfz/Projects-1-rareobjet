@@ -8,6 +8,12 @@
     font-family: "tt-font";
 }
 
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 @font-face {
     font-family: "tt-font";
     src: url("../css/tt-norms-pro-cufonfonts/TT\ Norms\ Pro\ Medium.otf");

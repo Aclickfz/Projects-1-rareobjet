@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustAclick</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#101010'
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/sweiper.css">
@@ -43,66 +55,59 @@
     <!-- header -->
     <div class="myNav">
         <div class="container-fluid">
-            <div class="myNav_content active">
-                <div class="mob-icon">
-                    <div class="menu_icon">
+            <div class="myNav_content active flex items-center justify-between gap-3 lg:gap-6 py-3 lg:py-4">
+                <div class="mob-icon flex items-center gap-3 lg:hidden">
+                    <div class="menu_icon flex h-10 w-10 items-center justify-center rounded-full text-xl text-stone-800">
                         <i class='bx bx-menu'></i>
                     </div>
-                    <div class="search-icon">
+                    <div class="search-icon flex h-10 w-10 items-center justify-center rounded-full text-xl text-stone-800">
                         <i class='bx bx-search'></i>
                     </div>
                 </div>
-                <div class="search">
-                    <input type="text" placeholder="Search">
-                    <div class="search-btn">
-                        <button>
+
+                <div class="search hidden flex-1 lg:flex lg:max-w-[26rem] xl:max-w-[30rem]">
+                    <label class="search-field flex w-full items-center overflow-hidden rounded-full border border-stone-300 bg-white shadow-sm">
+                        <input type="text" placeholder="Search" class="w-full border-0 bg-transparent px-4 py-2.5 text-sm text-stone-700 outline-none placeholder:text-stone-400">
+                        <button type="button" aria-label="Search button" class="flex h-11 w-11 shrink-0 items-center justify-center text-lg text-stone-800">
                             <i class='bx bx-search'></i>
                         </button>
-                    </div>
+                    </label>
                 </div>
+
                 <div class="search--input">
                     <div class="search--input-box">
                         <input type="text" placeholder="Search here...">
-                        <button><i class='bx bx-search'></i></button>
+                        <button type="button" aria-label="Search button"><i class='bx bx-search'></i></button>
                     </div>
                 </div>
-                <div class="logo">
-                    <a href="#">
-                        <img src="./assets/images/Logo/Logo1.svg" class="img-fluid" alt="JustAclick">
+
+                <div class="logo flex flex-1 items-center justify-center lg:flex-none">
+                    <a href="index.html" aria-label="Go to home page" class="block w-[150px] sm:w-[180px] lg:w-[240px] xl:w-[270px]">
+                        <img src="./assets/images/Logo/Logo1.svg" class="h-auto w-full object-contain" alt="JustAclick">
                     </a>
                 </div>
-                <div class="menu">
-                    <ul>
-                        <li><a href="login.html"><i class='bx bx-user-circle'></i>account</a></li>
-                        <li><a href="#"><img src="assets/images/cart.svg" class="img-fluid" alt="cart"> track order</a>
-                        </li>
-                        <li><a href="#"><img src="assets/images/recents.png" class="img-fluid" alt="recents">recents</a>
-                        </li>
-                        <li class="cart-no"><a href="whishlist.html"><img src="assets/images/favorites.png"
-                                    class="img-fluid" alt="recents">favorites</a>
-                            <span>(6)</span>
-                        </li>
-                        <li class="cart-no"><a href="cart.html"><img src="assets/images/cartnew.png" class="img-fluid"
-                                    alt="cart">cart
-                            </a>
-                            <span>(2)</span>
-                        </li>
+
+                <div class="menu hidden lg:flex lg:items-center lg:justify-end">
+                    <ul class="flex items-center gap-4 xl:gap-6">
+                        <li><a href="login.html" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><i class='bx bx-user-circle text-lg'></i>account</a></li>
+                        <li><a href="#" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/cart.svg" class="h-4 w-4 object-contain" alt="cart"> track order</a></li>
+                        <li><a href="#" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/recents.png" class="h-4 w-4 object-contain" alt="recents">recents</a></li>
+                        <li class="cart-no relative"><a href="whishlist.html" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/favorites.png" class="h-4 w-4 object-contain" alt="recents">favorites</a><span class="absolute -right-2 -top-1 text-[10px] text-stone-700">(6)</span></li>
+                        <li class="cart-no relative"><a href="cart.html" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/cartnew.png" class="h-4 w-4 object-contain" alt="cart">cart</a><span class="absolute -right-2 -top-1 text-[10px] text-stone-700">(2)</span></li>
                     </ul>
-                    <div class="menu_mob">
-                        <div class="user">
-                            <a href="login.html"><i class='bx bx-user-circle'></i>
-                            </a>
-                        </div>
-                        <div class="cart">
-                            <a href="cart.html">
-                                <i class='bx bx-cart'></i>
-                                <span>(2)</span>
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
-
+                <div class="menu_mob flex items-center gap-3 lg:hidden">
+                    <div class="user flex h-10 w-10 items-center justify-center rounded-full text-stone-800">
+                        <a href="login.html"><i class='bx bx-user-circle text-[26px]'></i></a>
+                    </div>
+                    <div class="cart relative flex h-10 w-10 items-center justify-center rounded-full text-stone-800">
+                        <a href="cart.html" class="relative flex items-center justify-center">
+                            <i class='bx bx-cart text-[26px]'></i>
+                            <span class="absolute -right-2 -top-2 rounded-full bg-stone-900 px-1.5 py-0.5 text-[10px] text-white">(2)</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="bottom-menu">
@@ -698,180 +703,69 @@
         </div>
 
         <!-- mobile nav -->
-        <div class="mobile_nav">
+        <div class="mobile_nav" aria-hidden="true">
             <div class="mobile_nav__content">
                 <div class="mobile_header">
-                    <div class="close-icon">
+                    <div class="mobile_brand">
+                        <a href="index.html" aria-label="Go to home page">
+                            <img src="./assets/images/Logo/Logo1.svg" alt="JustAclick" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="close-icon" aria-label="Close menu">
                         <i class='bx bx-x'></i>
+                    </div>
+                </div>
+                <div class="mobile_search">
+                    <div class="mobile_search_box">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="Search">
                     </div>
                 </div>
                 <div class="mobile_menu">
                     <ul>
-                        <li><a href="/">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="about-us.html">About</a></li>
                         <li class="dropBtn"><a href="#">furniture <i class='bx bx-chevron-right'></i></a>
                             <div class="megaDrop">
                                 <ul>
-                                    <li class="megadropBtn"> <a href="#" class="dropBtn--active">shop all furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
+                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">shop all furniture <i class='bx bx-chevron-right'></i></a>
+                                        <div class="megadropBtn_list"><a href="#">bedroom furniture</a><a href="#">living room furniture</a><a href="#">dining room furniture</a></div>
                                     </li>
-                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">new & featured <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
+                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">new & featured <i class='bx bx-chevron-right'></i></a>
+                                        <div class="megadropBtn_list"><a href="#">new arrivals</a><a href="#">best sellers</a><a href="#">sale picks</a></div>
                                     </li>
-                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">living room furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
+                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">living room furniture <i class='bx bx-chevron-right'></i></a>
+                                        <div class="megadropBtn_list"><a href="#">sofas</a><a href="#">chairs</a><a href="#">tables</a></div>
                                     </li>
-                                    <li class="megadropBtn"><a href="#">bedroom furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
-                                    <li class="megadropBtn"><a href="#">dining & kitchen furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                    </li>
-                                    <li class="megadropBtn"><a href="#">storage and modaltas furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
-                                    <li class="megadropBtn"><a href="#">best selling furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
                                 </ul>
-
                             </div>
                         </li>
                         <li class="dropBtn"><a href="#">lighting <i class='bx bx-chevron-right'></i></a>
                             <div class="megaDrop">
                                 <ul>
-                                    <li class="megadropBtn"> <a href="#" class="dropBtn--active">shop all furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
+                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">table lamps <i class='bx bx-chevron-right'></i></a>
+                                        <div class="megadropBtn_list"><a href="#">modern</a><a href="#">floor lamps</a><a href="#">task lamps</a></div>
                                     </li>
-                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">new & featured <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
+                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">ceiling lights <i class='bx bx-chevron-right'></i></a>
+                                        <div class="megadropBtn_list"><a href="#">pendants</a><a href="#">chandeliers</a><a href="#">fans</a></div>
                                     </li>
-                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">living room furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
-                                    </li>
-                                    <li class="megadropBtn"><a href="#">bedroom furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
-                                    <li class="megadropBtn"><a href="#">dining & kitchen furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                    </li>
-                                    <li class="megadropBtn"><a href="#">storage and modaltas furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
-                                    <li class="megadropBtn"><a href="#">best selling furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
                                 </ul>
-
                             </div>
                         </li>
-                        <li class="dropBtn"><a href="#">delos & mirrors <i class='bx bx-chevron-right'></i></a>
+                        <li class="dropBtn"><a href="#">decor <i class='bx bx-chevron-right'></i></a>
                             <div class="megaDrop">
                                 <ul>
-                                    <li class="megadropBtn"> <a href="#" class="dropBtn--active">shop all furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
+                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">wall art <i class='bx bx-chevron-right'></i></a>
+                                        <div class="megadropBtn_list"><a href="#">prints</a><a href="#">mirrors</a><a href="#">wall panels</a></div>
                                     </li>
-                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">new & featured <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
+                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">pillows & throws <i class='bx bx-chevron-right'></i></a>
+                                        <div class="megadropBtn_list"><a href="#">colored</a><a href="#">texture</a><a href="#">seasonal</a></div>
                                     </li>
-                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">living room furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
-                                    </li>
-                                    <li class="megadropBtn"><a href="#">bedroom furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
-                                    <li class="megadropBtn"><a href="#">dining & kitchen furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                    </li>
-                                    <li class="megadropBtn"><a href="#">storage and modaltas furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
-                                    <li class="megadropBtn"><a href="#">best selling furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
                                 </ul>
-
                             </div>
                         </li>
-                        <li class="dropBtn"><a href="#">tabletop & kitchen <i class='bx bx-chevron-right'></i></a>
-                            <div class="megaDrop">
-                                <ul>
-                                    <li class="megadropBtn"> <a href="#" class="dropBtn--active">shop all furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
-                                    </li>
-                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">new & featured <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
-                                    </li>
-                                    <li class="megadropBtn"><a href="#" class="dropBtn--active">living room furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                        <div class="megadropBtn_list">
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                            <a href="#">bedroom furniture</a>
-                                        </div>
-                                    </li>
-                                    <li class="megadropBtn"><a href="#">bedroom furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
-                                    <li class="megadropBtn"><a href="#">dining & kitchen furniture <i
-                                                class='bx bx-chevron-right'></i></a>
-                                    </li>
-                                    <li class="megadropBtn"><a href="#">storage and modaltas furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
-                                    <li class="megadropBtn"><a href="#">best selling furniture <i
-                                                class='bx bx-chevron-right'></i></a></li>
-                                </ul>
-
-                            </div>
-                        </li>
-                        <li class="dropBtn"><a href="#">Home utility & essentials <i
-                                    class='bx bx-chevron-right'></i></a></li>
-                        <li class="dropBtn"><a href="#">sale</a></li>
+                        <li><a href="product.html">Shop</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
                         <li><a href="contact-us.html">Contact us</a></li>
                     </ul>
                 </div>
@@ -880,16 +774,16 @@
     </div>
 
     <!-- Maintenance Section -->
-    <section class="maintenance global_section">
+    <!-- <section class="maintenance global_section">
         <section class="maintenance global_section">
             <div class="container text-center">
                 <h2>Hang tight, we are upgrading.</h2>
                 <p>We’re working hard to make things amazing for you. Check back soon for the grand reopening!</p>
             </div>
-        </section>
+        </section> -->
 
         <!-- Maintenance Popup -->
-        <div id="maintenancePopup" class="popup-overlay">
+        <!-- <div id="maintenancePopup" class="popup-overlay">
             <div class="popup-content">
                 <span class="close-btn" onclick="closePopup()">&times;</span>
                 <h3>Site Maintenance</h3>
@@ -901,7 +795,7 @@
                 <p>Phone: <a href="tel:+971553166873">+971553166873</a></p>
                 <p>WhatsApp: <a href="https://wa.me/971553166873">+971553166873</a></p>
             </div>
-        </div>
+        </div> -->
 
         <style>
             .maintenance {

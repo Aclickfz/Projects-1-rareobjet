@@ -4,187 +4,677 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JustAclick</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#101010'
-                    }
-                }
-            }
-        }
-    </script>
+    <title>New Arrivals | JustAclick</title>
+    <meta name="description" content="Browse the latest furniture and home accessories in the JustAclick collection.">
+    <meta name="theme-color" content="#303e34">
+    <meta property="og:title" content="New Arrivals | JustAclick">
+    <meta property="og:description" content="Browse the latest furniture and home accessories in the JustAclick collection.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/sweiper.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <!-- or -->
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-
-    <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-     <!-- Favicon for most browsers -->
      <link rel="icon" type="image/png" sizes="32x32" href="assets/images/Logo/favicon/favicon-32x32.png">
      <link rel="icon" type="image/png" sizes="16x16" href="assets/images/Logo/favicon/favicon-16x16.png">
      <link rel="icon" type="image/x-icon" href="assets/images/Logo/favicon/favicon.ico">
- 
-     <!-- Apple Touch Icon (for iOS devices) -->
-     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/Logo/favicon/apple-touch-icon.png">
- 
-     <!-- Android Icon -->
+
+
+     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/Logo/favicon/apple-icon-180x180.png">
+
+
      <link rel="icon" type="image/png" sizes="144x144" href="assets/images/Logo/favicon/android-icon-144x144.png">
- 
-     <!-- Web App Manifest (for Progressive Web Apps) -->
-     <link rel="manifest" href="assets/images/Logo/favicon/site.webmanifest">
+
+
+     <link rel="manifest" href="assets/images/Logo/favicon/manifest.json">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/design.css">
 </head>
 
-<body>
-    <div class="myNav">
+<body class="page-product">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="myNav">
         <div class="container-fluid">
-            <div class="myNav_content active flex items-center justify-between gap-3 lg:gap-6 py-3 lg:py-4">
-                <div class="mob-icon flex items-center gap-3 lg:hidden">
-                    <div class="menu_icon flex h-10 w-10 items-center justify-center rounded-full text-xl text-stone-800">
+            <div class="myNav_content active">
+                <div class="mob-icon">
+                    <button type="button" class="menu_icon" aria-label="Open menu">
                         <i class='bx bx-menu'></i>
-                    </div>
-                    <div class="search-icon flex h-10 w-10 items-center justify-center rounded-full text-xl text-stone-800">
+                    </button>
+                    <button type="button" class="search-icon" aria-label="Open search">
                         <i class='bx bx-search'></i>
-                    </div>
+                    </button>
                 </div>
 
-                <div class="search hidden flex-1 lg:flex lg:max-w-[26rem] xl:max-w-[30rem]">
-                    <label class="search-field flex w-full items-center overflow-hidden rounded-full border border-stone-300 bg-white shadow-sm">
-                        <input type="text" placeholder="Search" class="w-full border-0 bg-transparent px-4 py-2.5 text-sm text-stone-700 outline-none placeholder:text-stone-400">
-                        <button type="button" aria-label="Search button" class="flex h-11 w-11 shrink-0 items-center justify-center text-lg text-stone-800">
+                <div class="search">
+                    <form class="search-field" role="search" action="product.html" method="get">
+                        <input type="search" name="q" aria-label="Search products" placeholder="Search" class="">
+                        <button type="submit" aria-label="Search products" class="">
                             <i class='bx bx-search'></i>
                         </button>
-                    </label>
+                    </form>
                 </div>
 
                 <div class="search--input">
-                    <div class="search--input-box">
-                        <input type="text" placeholder="Search here...">
-                        <button type="button" aria-label="Search button"><i class='bx bx-search'></i></button>
-                    </div>
+                    <form class="search--input-box" role="search" action="product.html" method="get">
+                        <input type="search" name="q" aria-label="Search products" placeholder="Search here...">
+                        <button type="submit" aria-label="Search products"><i class='bx bx-search'></i></button>
+                    </form>
                 </div>
 
-                <div class="logo flex flex-1 items-center justify-center lg:flex-none">
-                    <a href="index.html" aria-label="Go to home page" class="block w-[150px] sm:w-[180px] lg:w-[240px] xl:w-[270px]">
-                        <img src="./assets/images/Logo/Logo1.svg" class="h-auto w-full object-contain" alt="JustAclick">
+                <div class="logo">
+                    <a href="index.html" aria-label="Go to home page" class="">
+                        <img src="./assets/images/Logo/Logo1.svg" class="" alt="JustAclick">
                     </a>
                 </div>
 
-                <div class="menu hidden lg:flex lg:items-center lg:justify-end">
-                    <ul class="flex items-center gap-4 xl:gap-6">
-                        <li><a href="login.html" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><i class='bx bx-user-circle text-lg'></i>account</a></li>
-                        <li><a href="#" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/cart.svg" class="h-4 w-4 object-contain" alt="cart"> track order</a></li>
-                        <li><a href="#" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/recents.png" class="h-4 w-4 object-contain" alt="recents">recents</a></li>
-                        <li class="cart-no relative"><a href="whishlist.html" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/favorites.png" class="h-4 w-4 object-contain" alt="recents">favorites</a><span class="absolute -right-2 -top-1 text-[10px] text-stone-700">(6)</span></li>
-                        <li class="cart-no relative"><a href="cart.html" class="flex flex-col items-center text-[11px] font-medium uppercase tracking-wide text-stone-700 transition hover:text-stone-900"><img src="assets/images/cartnew.png" class="h-4 w-4 object-contain" alt="cart">cart</a><span class="absolute -right-2 -top-1 text-[10px] text-stone-700">(2)</span></li>
+                <div class="menu">
+                    <ul class="">
+                        <li><a href="login.html" class=""><i class='bx bx-user-circle text-lg'></i>account</a></li>
+                        <li><a href="#" class=""><img src="assets/images/cart.svg" class="" alt="cart"> track order</a></li>
+                        <li><a href="#" class=""><img src="assets/images/recents.png" class="" alt="recents">recents</a></li>
+                        <li class="cart-no"><a href="whishlist.html" class=""><img src="assets/images/favorites.png" class="" alt="recents">favorites</a><span class="">(6)</span></li>
+                        <li class="cart-no"><a href="cart.html" class=""><img src="assets/images/cartnew.png" class="" alt="cart">cart</a><span class="">(2)</span></li>
                     </ul>
                 </div>
 
-                <div class="menu_mob flex items-center gap-3 lg:hidden">
-                    <div class="user flex h-10 w-10 items-center justify-center rounded-full text-stone-800">
-                        <a href="login.html"><i class='bx bx-user-circle text-[26px]'></i></a>
+                <div class="menu_mob">
+                    <div class="user">
+                        <a href="login.html" aria-label="Your account"><i class='bx bx-user-circle text-[26px]'></i></a>
                     </div>
-                    <div class="cart relative flex h-10 w-10 items-center justify-center rounded-full text-stone-800">
-                        <a href="cart.html" class="relative flex items-center justify-center">
+                    <div class="cart">
+                        <a href="cart.html" aria-label="Your cart" class="">
                             <i class='bx bx-cart text-[26px]'></i>
-                            <span class="absolute -right-2 -top-2 rounded-full bg-stone-900 px-1.5 py-0.5 text-[10px] text-white">(2)</span>
+                            <span class="">(2)</span>
                         </a>
                     </div>
                 </div>
-
-
             </div>
         </div>
-        <div class="bottom-menu">
+        <nav class="bottom-menu" aria-label="Main navigation">
             <ul>
-                <li class="dropmenu">
-                    <a href="#">Furniture</a>
+<li class="dropmenu">
+                    <a href="categories.html">Furniture</a>
                     <div class="dropmenu_list">
-                        <a href="#">shop all furniture</a>
-                        <a href="#">new & featured</a>
-                        <a href="#">living room furniture</a>
-                        <a href="#">bedroom furniture</a>
-                        <a href="#">dining & kitchen furniture</a>
-                        <a href="#">storage and modaltas furniture</a>
-                        <a href="#">best selling furniture</a>
-                    </div>
-                </li>
-                <li class="dropmenu"><a href="#">lighting</a>
-                    <div class="dropmenu_list">
-                        <a href="#">shop all lighting</a>
-                        <a href="#">new lighting</a>
-                        <a href="#">table & hoorlamp</a>
-                        <a href="#">bedroom furniture</a>
-                        <a href="#">dining & kitchen furniture</a>
-                        <a href="#">storage and modaltas furniture</a>
-                        <a href="#">best selling furniture</a>
-                    </div>
-                </li>
-                <li class="dropmenu"><a href="#">delos & mirrors</a>
-                    <div class="dropmenu_list">
-                        <a href="#">shop all lighting</a>
-                        <a href="#">new lighting</a>
-                        <a href="#">table & hoorlamp</a>
-                        <a href="#">bedroom furniture</a>
-                        <a href="#">dining & kitchen furniture</a>
-                        <a href="#">storage and modaltas furniture</a>
-                        <a href="#">best selling furniture</a>
-                    </div>
-                </li>
-                <li class="dropmenu"><a href="#">tabletop & kitchen</a>
-                    <div class="dropmenu_list">
-                        <a href="#">shop all lighting</a>
-                        <a href="#">new lighting</a>
-                        <a href="#">table & hoorlamp</a>
-                        <a href="#">bedroom furniture</a>
-                        <a href="#">dining & kitchen furniture</a>
-                        <a href="#">storage and modaltas furniture</a>
-                        <a href="#">best selling furniture</a>
-                    </div>
-                </li>
-                <li class="dropmenu"><a href="#">Home utility & essentials</a>
-                    <div class="dropmenu_list">
-                        <a href="#">shop all lighting</a>
-                        <a href="#">new lighting</a>
-                        <a href="#">table & hoorlamp</a>
-                        <a href="#">bedroom furniture</a>
-                        <a href="#">dining & kitchen furniture</a>
-                        <a href="#">storage and modaltas furniture</a>
-                        <a href="#">best selling furniture</a>
-                    </div>
-                </li>
-                <li class="dropmenu"><a href="#">gifts</a>
-                    <div class="dropmenu_list">
-                        <a href="#">shop all lighting</a>
-                        <a href="#">new lighting</a>
-                        <a href="#">table & hoorlamp</a>
-                        <a href="#">bedroom furniture</a>
-                        <a href="#">dining & kitchen furniture</a>
-                        <a href="#">storage and modaltas furniture</a>
-                        <a href="#">best selling furniture</a>
-                    </div>
-                </li>
-                <li class="dropmenu"><a href="#">sale</a>
+                        <div class="dropmenu_list__flex">
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <h6> <a href="#">In-Stock & Quick Ship Furniture <i
+                                                class='bx bx-chevron-right'></i></a></h6>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
 
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="dropdown_img">
+                                    <a href="#">
+                                        <img src="assets/images/img2m.jpg" class="img-fluid" alt="Explore the collection">
+                                    </a>
+                                    <a href="#">New: Aptos Furniture Collection ›</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li class="dropmenu"><a href="product.html">New</a>
+                    <div class="dropmenu_list">
+                        <div class="dropmenu_list__flex">
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <h6> <a href="#">In-Stock & Quick Ship Furniture <i
+                                                class='bx bx-chevron-right'></i></a></h6>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="dropdown_img">
+                                    <a href="#">
+                                        <img src="assets/images/img2m.jpg" class="img-fluid" alt="Explore the collection">
+                                    </a>
+                                    <a href="#">New: Aptos Furniture Collection ›</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li class="dropmenu"><a href="#">Outdoor</a>
+                    <div class="dropmenu_list">
+                        <div class="dropmenu_list__flex">
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <h6> <a href="#">In-Stock & Quick Ship Furniture <i
+                                                class='bx bx-chevron-right'></i></a></h6>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="dropdown_img">
+                                    <a href="#">
+                                        <img src="assets/images/img2m.jpg" class="img-fluid" alt="Explore the collection">
+                                    </a>
+                                    <a href="#">New: Aptos Furniture Collection ›</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li class="dropmenu"><a href="#">Bedding</a>
+                    <div class="dropmenu_list">
+                        <div class="dropmenu_list__flex">
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <h6> <a href="#">In-Stock & Quick Ship Furniture <i
+                                                class='bx bx-chevron-right'></i></a></h6>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="dropdown_img">
+                                    <a href="#">
+                                        <img src="assets/images/img2m.jpg" class="img-fluid" alt="Explore the collection">
+                                    </a>
+                                    <a href="#">New: Aptos Furniture Collection ›</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li class="dropmenu"><a href="#">Bath</a>
+                    <div class="dropmenu_list">
+                        <div class="dropmenu_list__flex">
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <h6> <a href="#">In-Stock & Quick Ship Furniture <i
+                                                class='bx bx-chevron-right'></i></a></h6>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="dropdown_img">
+                                    <a href="#">
+                                        <img src="assets/images/img2m.jpg" class="img-fluid" alt="Explore the collection">
+                                    </a>
+                                    <a href="#">New: Aptos Furniture Collection ›</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li class="dropmenu"><a href="#">Lighting</a>
+                    <div class="dropmenu_list">
+                        <div class="dropmenu_list__flex">
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <h6> <a href="#">In-Stock & Quick Ship Furniture <i
+                                                class='bx bx-chevron-right'></i></a></h6>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                </div>
+
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i> </h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                                <div class="menu_heading">
+                                    <a href="#">In-Stock & Quick Ship Furniture <i class='bx bx-chevron-right'></i></a>
+                                </div>
+                                <div class="menu_list">
+                                    <h6>Living Room Furniture <i class='bx bx-chevron-right'></i></h6>
+                                    <a href="#">shop all furniture</a>
+                                    <a href="#">new & featured</a>
+                                    <a href="#">living room furniture</a>
+                                    <a href="#">bedroom furniture</a>
+                                    <a href="#">dining & kitchen furniture</a>
+                                    <a href="#">storage and modaltas furniture</a>
+                                    <a href="#">best selling furniture</a>
+                                </div>
+                            </div>
+                            <div class="menu_coloumn">
+                                <div class="dropdown_img">
+                                    <a href="#">
+                                        <img src="assets/images/img2m.jpg" class="img-fluid" alt="Explore the collection">
+                                    </a>
+                                    <a href="#">New: Aptos Furniture Collection ›</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li class="dropmenu"><a href="#">Rugs</a>
+                </li>
+<li class="dropmenu"><a href="#">Windows</a>
+                </li>
+<li class="dropmenu"><a href="#">Pillows & Decor</a>
+                </li>
+<li class="dropmenu"><a href="#">Art & Mirrors</a>
+                </li>
+<li class="dropmenu"><a href="#">Tabletop & Bar</a>
+                </li>
+<li class="dropmenu"><a href="#">Storage</a>
+                </li>
+<li class="dropmenu"><a href="#">Holidays</a>
+                </li>
+<li class="dropmenu"><a href="#">gifts</a>
                 </li>
             </ul>
-        </div>
+        </nav>
         <div class="offer">
             <div class="container">
                 <div class="offer_info">
@@ -195,128 +685,145 @@
             </div>
         </div>
 
-        <!-- mobile nav -->
-        <div class="mobile_nav">
+
+        <div class="mobile_nav" aria-hidden="true">
             <div class="mobile_nav__content">
                 <div class="mobile_header">
-                    <div class="close-icon">
-                        <i class='bx bx-x'></i>
+                    <div class="mobile_brand">
+                        <a href="index.html" aria-label="Go to home page">
+                            <img src="./assets/images/Logo/Logo1.svg" alt="JustAclick" class="img-fluid">
+                        </a>
                     </div>
+                    <button type="button" class="close-icon" aria-label="Close menu">
+                        <i class='bx bx-x'></i>
+                    </button>
                 </div>
-                <div class="mobile_menu">
+                <div class="mobile_search">
+                    <form class="mobile_search_box" role="search" action="product.html" method="get">
+                        <button type="submit" aria-label="Search"><i class="bx bx-search" aria-hidden="true"></i></button>
+                        <input type="search" name="q" aria-label="Search products" placeholder="Search">
+                    </form>
+                </div>
+                <nav class="mobile_menu" aria-label="Mobile navigation">
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="about-us.html">About</a></li>
-                        <li class="dropBtn"><a href="#">furniture <i class='bx bx-chevron-right'></i></a>
+<li><a href="index.html">Home</a></li>
+<li><a href="about-us.html">About</a></li>
+<li class="dropBtn"><button type="button">Furniture <i class='bx bx-chevron-right'></i></button>
                             <div class="megaDrop">
-                                <a href="#">shop all furniture</a>
-                                <a href="#">new & featured</a>
-                                <a href="#">living room furniture</a>
-                                <a href="#">bedroom furniture</a>
-                                <a href="#">dining & kitchen furniture</a>
-                                <a href="#">storage and modaltas furniture</a>
-                                <a href="#">best selling furniture</a>
+                                <ul>
+                                    <li class="megadropBtn"><button type="button" class="dropBtn--active">shop all furniture <i class='bx bx-chevron-right'></i></button>
+                                        <div class="megadropBtn_list"><a href="#">bedroom furniture</a><a href="#">living room furniture</a><a href="#">dining room furniture</a></div>
+                                    </li>
+                                    <li class="megadropBtn"><button type="button" class="dropBtn--active">new & featured <i class='bx bx-chevron-right'></i></button>
+                                        <div class="megadropBtn_list"><a href="#">new arrivals</a><a href="#">best sellers</a><a href="#">sale picks</a></div>
+                                    </li>
+                                    <li class="megadropBtn"><button type="button" class="dropBtn--active">living room furniture <i class='bx bx-chevron-right'></i></button>
+                                        <div class="megadropBtn_list"><a href="#">sofas</a><a href="#">chairs</a><a href="#">tables</a></div>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
-                        <li class="dropBtn"><a href="#">lighting <i class='bx bx-chevron-right'></i></a>
+<li><a href="product.html">New</a></li>
+<li><a href="#">Outdoor</a></li>
+<li><a href="#">Bedding</a></li>
+<li><a href="#">Bath</a></li>
+<li class="dropBtn"><button type="button">Lighting <i class='bx bx-chevron-right'></i></button>
                             <div class="megaDrop">
-                                <a href="#">shop all furniture</a>
-                                <a href="#">new & featured</a>
-                                <a href="#">living room furniture</a>
-                                <a href="#">bedroom furniture</a>
-                                <a href="#">dining & kitchen furniture</a>
-                                <a href="#">storage and modaltas furniture</a>
-                                <a href="#">best selling furniture</a>
+                                <ul>
+                                    <li class="megadropBtn"><button type="button" class="dropBtn--active">table lamps <i class='bx bx-chevron-right'></i></button>
+                                        <div class="megadropBtn_list"><a href="#">modern</a><a href="#">floor lamps</a><a href="#">task lamps</a></div>
+                                    </li>
+                                    <li class="megadropBtn"><button type="button" class="dropBtn--active">ceiling lights <i class='bx bx-chevron-right'></i></button>
+                                        <div class="megadropBtn_list"><a href="#">pendants</a><a href="#">chandeliers</a><a href="#">fans</a></div>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
-                        <li class="dropBtn"><a href="#">delos & mirrors <i class='bx bx-chevron-right'></i></a>
+<li><a href="#">Rugs</a></li>
+<li><a href="#">Windows</a></li>
+<li class="dropBtn"><button type="button">Pillows & Decor <i class='bx bx-chevron-right'></i></button>
                             <div class="megaDrop">
-                                <a href="#">shop all furniture</a>
-                                <a href="#">new & featured</a>
-                                <a href="#">living room furniture</a>
-                                <a href="#">bedroom furniture</a>
-                                <a href="#">dining & kitchen furniture</a>
-                                <a href="#">storage and modaltas furniture</a>
-                                <a href="#">best selling furniture</a>
+                                <ul>
+                                    <li class="megadropBtn"><button type="button" class="dropBtn--active">wall art <i class='bx bx-chevron-right'></i></button>
+                                        <div class="megadropBtn_list"><a href="#">prints</a><a href="#">mirrors</a><a href="#">wall panels</a></div>
+                                    </li>
+                                    <li class="megadropBtn"><button type="button" class="dropBtn--active">pillows & throws <i class='bx bx-chevron-right'></i></button>
+                                        <div class="megadropBtn_list"><a href="#">colored</a><a href="#">texture</a><a href="#">seasonal</a></div>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
-                        <li class="dropBtn"><a href="#">tabletop & kitchen <i class='bx bx-chevron-right'></i></a>
-                            <div class="megaDrop">
-                                <a href="#">shop all furniture</a>
-                                <a href="#">new & featured</a>
-                                <a href="#">living room furniture</a>
-                                <a href="#">bedroom furniture</a>
-                                <a href="#">dining & kitchen furniture</a>
-                                <a href="#">storage and modaltas furniture</a>
-                                <a href="#">best selling furniture</a>
-                            </div>
-                        </li>
-                        <li class="dropBtn"><a href="#">Home utility & essentials <i
-                                    class='bx bx-chevron-right'></i></a></li>
-                        <li class="dropBtn"><a href="#">sale</a></li>
-                        <li><a href="contact-us.html">Contact us</a></li>
+<li><a href="#">Art & Mirrors</a></li>
+<li><a href="#">Tabletop & Bar</a></li>
+<li><a href="#">Storage</a></li>
+<li><a href="#">Holidays</a></li>
+<li><a href="#">gifts</a></li>
+<li><a href="product.html">Shop</a></li>
+<li><a href="blogs.html">Blog</a></li>
+<li><a href="contact-us.html">Contact us</a></li>
                     </ul>
-                </div>
+                </nav>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- product -->
+
+    <main id="main-content" tabindex="-1">
     <section class="product_wrapper global_section">
         <div class="container-fluid">
             <div class="product_wrapper__content">
                 <div class="product_heading">
                     <a href="#"><i class='bx bx-chevron-left'></i>New</a>
-                    <h6>All New Arrivals <sub><a href="#">View 71 Items <i class='bx bx-down-arrow-alt'></i></a></sub>
-                    </h6>
+                    <h1>All New Arrivals <sub><a href="#">View 71 Items <i class='bx bx-down-arrow-alt'></i></a></sub>
+                    </h1>
                 </div>
                 <div class="product_video">
-                    <video src="assets/images/product-video.mp4" loop muted autoplay></video>
+                    <video src="assets/images/product-video.mp4" loop muted autoplay playsinline controls preload="metadata"></video>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- product slider -->
+
     <section class="product_slider global_section">
         <div class="container-fluid">
             <div class="product_slider__content">
-                <!-- Swiper -->
+
                 <div class="swiper mySwiper2 element_content">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/img2m.jpg" class="img-fluid" alt="img1">
+                                <img decoding="async" src="assets/images/img2m.jpg" class="img-fluid" alt="Explore the collection">
                                 <p>furniture</p>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/img3m.jpg" class="img-fluid" alt="img1">
+                                <img decoding="async" src="assets/images/img3m.jpg" class="img-fluid" alt="Explore the collection">
                                 <p>pillow & decor</p>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/img7m.jpg" class="img-fluid" alt="img1">
+                                <img decoding="async" loading="lazy" src="assets/images/img7m.jpg" class="img-fluid" alt="Explore the collection">
                                 <p>tabletop & bar</p>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/img1m.jpg" class="img-fluid" alt="img1">
+                                <img decoding="async" loading="lazy" src="assets/images/img1m.jpg" class="img-fluid" alt="Explore the collection">
                                 <p>bedding</p>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/img8m.jpg" class="img-fluid" alt="img1">
+                                <img decoding="async" loading="lazy" src="assets/images/img8m.jpg" class="img-fluid" alt="Explore the collection">
                                 <p>bath</p>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/img10m.jpg" class="img-fluid" alt="img1">
+                                <img decoding="async" loading="lazy" src="assets/images/img10m.jpg" class="img-fluid" alt="Explore the collection">
                                 <p>lighting</p>
                             </a>
                         </div>
@@ -335,54 +842,49 @@
             <div class="product_box__content">
                 <div class="product_row">
                     <div class="product_row__left">
-                        <div class="filter">
-                            <button>filter <img src="assets/images/filter.svg" class="img-fluid" alt="filter"></button>
-                        </div>
+                        <button class="filter" type="button">filter <img decoding="async" loading="lazy" src="assets/images/filter.svg" class="img-fluid" alt="filter"></button>
                         <p>zip code:</p>
                     </div>
                     <div class="product_row__right">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Featured</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select" aria-label="Sort products">
+                            <option value="featured" selected>Featured</option>
+                            <option value="price-low">Price: low to high</option>
+                            <option value="price-high">Price: high to low</option>
+                            <option value="name">Name: A to Z</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-4 col-sm-6">
-                        <a href="product-details.html">
-                            <div class="card__inner">
+                        <div class="card__inner">
                                 <div class="card--img">
                                     <div class="media_hover">
-                                        <img src="assets/images/aptos-square-coffee-table-44-c.jpg" class="img-fluid"
+                                        <img decoding="async" loading="lazy" src="assets/images/aptos-square-coffee-table-44-c.jpg" class="img-fluid"
                                             alt="">
-                                        <img src="assets/images/img3m.jpg" class="img-fluid" alt="">
-                                        <img src="assets/images/img10m.jpg" class="img-fluid" alt="">
-                                        <img src="assets/images/img1m.jpg" class="img-fluid" alt="">
+                                        <img decoding="async" loading="lazy" src="assets/images/img3m.jpg" class="img-fluid" alt="">
+                                        <img decoding="async" loading="lazy" src="assets/images/img10m.jpg" class="img-fluid" alt="">
+                                        <img decoding="async" loading="lazy" src="assets/images/img1m.jpg" class="img-fluid" alt="">
 
                                     </div>
                                     <div class="favorites">
-                                        <button class="half-heart"><i class='bx bx-heart'></i></button>
-                                        <button class="full-heart"><i class='bx bxs-heart'></i></button>
+                                        <button type="button" class="catalog-heart heart" aria-label="Save to favourites" aria-pressed="false"><i class="bx bx-heart" aria-hidden="true"></i></button>
                                     </div>
                                 </div>
                                 <div class="card__inner_content">
                                     <h6>New</h6>
-                                    <a href="#">Aptos Square Coffee Table (44")</a>
+                                    <a href="product-details.html">Aptos Square Coffee Table (44")</a>
                                     <span>$ 899</span>
                                     <p>Contract Grade</p>
                                 </div>
                             </div>
-                        </a>
                     </div>
                     <div class="col-xl-4 col-sm-6">
                         <div class="card__inner">
                             <div class="media_hover">
-                                <img src="assets/images/diamond-cable-knit-pillow-3-c.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img2m.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img3m.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img4.jpeg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/diamond-cable-knit-pillow-3-c.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img2m.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img3m.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img4.jpeg" class="img-fluid" alt="">
                             </div>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -395,10 +897,10 @@
                     <div class="col-xl-4 col-sm-6">
                         <div class="card__inner">
                             <div class="media_hover">
-                                <img src="assets/images/aptos-side-table-22-c.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img1.avif" class="img-fluid" alt="">
-                                <img src="assets/images/img3m.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img4.jpeg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/aptos-side-table-22-c.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img1.avif" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img3m.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img4.jpeg" class="img-fluid" alt="">
                             </div>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -411,10 +913,10 @@
                     <div class="col-xl-4 col-sm-6">
                         <div class="card__inner">
                             <div class="media_hover">
-                                <img src="assets/images/aptos-square-coffee-table-44-c.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img3m.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img10m.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img1m.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/aptos-square-coffee-table-44-c.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img3m.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img10m.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img1m.jpg" class="img-fluid" alt="">
                             </div>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -427,10 +929,10 @@
                     <div class="col-xl-4 col-sm-6">
                         <div class="card__inner">
                             <div class="media_hover">
-                                <img src="assets/images/diamond-cable-knit-pillow-3-c.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img2m.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img3m.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img4.jpeg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/diamond-cable-knit-pillow-3-c.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img2m.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img3m.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img4.jpeg" class="img-fluid" alt="">
                             </div>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -443,10 +945,10 @@
                     <div class="col-xl-4 col-sm-6">
                         <div class="card__inner">
                             <div class="media_hover">
-                                <img src="assets/images/aptos-side-table-22-c.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img1.avif" class="img-fluid" alt="">
-                                <img src="assets/images/img3m.jpg" class="img-fluid" alt="">
-                                <img src="assets/images/img4.jpeg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/aptos-side-table-22-c.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img1.avif" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img3m.jpg" class="img-fluid" alt="">
+                                <img decoding="async" loading="lazy" src="assets/images/img4.jpeg" class="img-fluid" alt="">
                             </div>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -461,93 +963,77 @@
         </div>
     </section>
 
-    <!-- filter side-bar -->
+
     <section class="filter_sidebar">
         <div class="filter_sidebar__content">
             <div class="filter_header">
                 <h3>filter</h3>
-                <div class="close">
+                <button class="close" type="button" aria-label="Close filters">
                     <i class='bx bx-x'></i>
-                </div>
+                </button>
             </div>
             <div class="filter_content">
                 <div class="filter_content__box">
-                    <div class="filter_heading">
-                        <h6>Department</h6>
+                    <button class="filter_heading" type="button"><span>Department</span>
                         <i class='bx bx-chevron-down'></i>
-                    </div>
+                    </button>
                     <div class="filter_select">
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>Furniture <span>(475)</span></label>
+                            <input type="checkbox" id="filter-1"><label for="filter-1">Furniture <span>(475)</span></label>
                         </div>
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>pillow & decor <span>(415)</span></label>
+                            <input type="checkbox" id="filter-2"><label for="filter-2">pillow & decor <span>(415)</span></label>
                         </div>
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>tablet & bar <span>(375)</span></label>
+                            <input type="checkbox" id="filter-3"><label for="filter-3">tablet & bar <span>(375)</span></label>
                         </div>
                     </div>
                 </div>
                 <div class="filter_content__box">
-                    <div class="filter_heading">
-                        <h6>Category</h6>
+                    <button class="filter_heading" type="button"><span>Category</span>
                         <i class='bx bx-chevron-down'></i>
-                    </div>
+                    </button>
                     <div class="filter_select">
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>Furniture <span>(475)</span></label>
+                            <input type="checkbox" id="filter-4"><label for="filter-4">Furniture <span>(475)</span></label>
                         </div>
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>pillow & decor <span>(415)</span></label>
+                            <input type="checkbox" id="filter-5"><label for="filter-5">pillow & decor <span>(415)</span></label>
                         </div>
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>tablet & bar <span>(375)</span></label>
+                            <input type="checkbox" id="filter-6"><label for="filter-6">tablet & bar <span>(375)</span></label>
                         </div>
                     </div>
                 </div>
                 <div class="filter_content__box">
-                    <div class="filter_heading">
-                        <h6>Sale</h6>
+                    <button class="filter_heading" type="button"><span>Sale</span>
                         <i class='bx bx-chevron-down'></i>
-                    </div>
+                    </button>
                     <div class="filter_select">
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>Furniture <span>(475)</span></label>
+                            <input type="checkbox" id="filter-7"><label for="filter-7">Furniture <span>(475)</span></label>
                         </div>
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>pillow & decor <span>(415)</span></label>
+                            <input type="checkbox" id="filter-8"><label for="filter-8">pillow & decor <span>(415)</span></label>
                         </div>
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>tablet & bar <span>(375)</span></label>
+                            <input type="checkbox" id="filter-9"><label for="filter-9">tablet & bar <span>(375)</span></label>
                         </div>
                     </div>
                 </div>
                 <div class="filter_content__box">
-                    <div class="filter_heading">
-                        <h6>Price</h6>
+                    <button class="filter_heading" type="button"><span>Price</span>
                         <i class='bx bx-chevron-down'></i>
-                    </div>
+                    </button>
                     <div class="filter_select">
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>Under $21 <span>(475)</span></label>
+                            <input type="checkbox" id="filter-10"><label for="filter-10">Under $21 <span>(475)</span></label>
                         </div>
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>Under $25 <span>(415)</span></label>
+                            <input type="checkbox" id="filter-11"><label for="filter-11">Under $25 <span>(415)</span></label>
                         </div>
                         <div class="filter_select__input">
-                            <input type="checkbox">
-                            <label>Under $26 <span>(375)</span></label>
+                            <input type="checkbox" id="filter-12"><label for="filter-12">Under $26 <span>(375)</span></label>
                         </div>
                     </div>
                 </div>
@@ -558,7 +1044,7 @@
         </div>
     </section>
 
-    <!-- top picks for you -->
+
     <section class="global_section more_wrapper">
         <div class="container-fluid">
             <div class="picks_content">
@@ -569,7 +1055,7 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/img3.jpeg" class="img-fluid" alt="img1">
+                                <img decoding="async" loading="lazy" src="assets/images/img3.jpeg" class="img-fluid" alt="Explore the collection">
                             </a>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -580,7 +1066,7 @@
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/img4.jpeg" class="img-fluid" alt="img1">
+                                <img decoding="async" loading="lazy" src="assets/images/img4.jpeg" class="img-fluid" alt="Explore the collection">
                             </a>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -591,7 +1077,7 @@
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/img5.jpeg" class="img-fluid" alt="img1">
+                                <img decoding="async" loading="lazy" src="assets/images/img5.jpeg" class="img-fluid" alt="Explore the collection">
                             </a>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -602,7 +1088,7 @@
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/furniture.jpeg" class="img-fluid" alt="img1">
+                                <img decoding="async" loading="lazy" src="assets/images/furniture.jpeg" class="img-fluid" alt="Explore the collection">
                             </a>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -613,7 +1099,7 @@
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/furniture2.jpeg" class="img-fluid" alt="img1">
+                                <img decoding="async" loading="lazy" src="assets/images/furniture2.jpeg" class="img-fluid" alt="Explore the collection">
                             </a>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -624,7 +1110,7 @@
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="assets/images/furniture5.jpeg" class="img-fluid" alt="img1">
+                                <img decoding="async" loading="lazy" src="assets/images/furniture5.jpeg" class="img-fluid" alt="Explore the collection">
                             </a>
                             <div class="card__inner_content">
                                 <h6>New</h6>
@@ -643,7 +1129,7 @@
         </div>
     </section>
 
-    <!-- more to explore -->
+
     <section class="global_section more_wrapper">
         <div class="container-fluid">
             <div class="more_wrapper__content">
@@ -653,7 +1139,7 @@
                 <div class="more-box-grid">
                     <div class="more-box">
                         <div class="more-box-img">
-                            <img src="assets/images/img2.jpeg" alt="img">
+                            <img decoding="async" loading="lazy" src="assets/images/img2.jpeg" alt="Explore the collection">
                         </div>
                         <div class="more-box-content">
                             <a href="#">new arrivals <i class='bx bx-chevron-right'></i></a>
@@ -661,7 +1147,7 @@
                     </div>
                     <div class="more-box">
                         <div class="more-box-img">
-                            <img src="assets/images/img3.jpeg" alt="img">
+                            <img decoding="async" loading="lazy" src="assets/images/img3.jpeg" alt="Explore the collection">
                         </div>
                         <div class="more-box-content">
                             <a href="#">book a free appointment <i class='bx bx-chevron-right'></i></a>
@@ -669,7 +1155,7 @@
                     </div>
                     <div class="more-box">
                         <div class="more-box-img">
-                            <img src="assets/images/img4.jpeg" alt="img">
+                            <img decoding="async" loading="lazy" src="assets/images/img4.jpeg" alt="Explore the collection">
                         </div>
                         <div class="more-box-content">
                             <a href="#">bestsellers <i class='bx bx-chevron-right'></i></a>
@@ -680,8 +1166,6 @@
         </div>
     </section>
 
-
-    <!-- realated searches -->
     <section class="global_section related_search">
         <div class="container-fluid">
             <div class="related_search__content">
@@ -699,7 +1183,7 @@
         </div>
     </section>
 
-    <!-- all new -->
+
     <section class="global_section all_wrapper">
         <div class="container-fluid">
             <div class="all_wrapper__content">
@@ -733,16 +1217,18 @@
         </div>
     </section>
 
-    <!-- footer -->
+
+    </main>
     <footer>
         <div class="footer_wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-sm-4">
                         <div class="footer_wrapper__box">
-                            <h6>Customer Service</h6>
-                            <div class="footer_links">
-                                <a href="#">Contact Us</a>
+                            <div class="footer-section">
+                            <h6 data-footer-toggle="footer-customer-service">Customer Service</h6>
+                            <div class="footer_links" id="footer-customer-service">
+                                <a href="contact-us.html">Contact Us</a>
                                 <a href="#">Track Your Order</a>
                                 <a href="#"> Returns & Exchanges</a>
                                 <a href="#">Shipping Information</a>
@@ -750,31 +1236,43 @@
                                 <a href="#">Email Preferences</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-4">
-                        <div class="footer_wrapper__box">
-                            <h6>About Us</h6>
-                            <div class="footer_links">
-                                <a href="#">Our Story</a>
-                                <a href="#">Careers</a>
-                                <a href="#"> Press</a>
-                                <a href="#">Influencers</a>
-                                <a href="#">Find a Store</a>
-                                <h6>Business to Business</h6>
-                                <a href="#">Overview</a>
-                                <a href="#">Trade</a>
-                                <a href="#">Contact</a>
-                                <a href="#">Corporate Gifting</a>
-                            </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-4">
                         <div class="footer_wrapper__box">
-                            <h6>Design Services</h6>
-                            <div class="footer_links">
+                            <div class="footer-section">
+                            <h6 data-footer-toggle="footer-about-us">About Us</h6>
+                            <div class="footer_links" id="footer-about-us">
+                                <a href="about-us.html">Our Story</a>
+                                <a href="#">Careers</a>
+                                <a href="#"> Press</a>
+                                <a href="#">Influencers</a>
+                                <a href="#">Find a Store</a>
+                                </div>
+                        </div>
+                        <div class="footer-section">
+                            <h6 data-footer-toggle="footer-business-to-business">Business to Business</h6>
+                            <div class="footer_links" id="footer-business-to-business">
+                                <a href="#">Overview</a>
+                                <a href="#">Trade</a>
+                                <a href="contact-us.html">Contact</a>
+                                <a href="#">Corporate Gifting</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-4">
+                        <div class="footer_wrapper__box">
+                            <div class="footer-section">
+                            <h6 data-footer-toggle="footer-design-services">Design Services</h6>
+                            <div class="footer_links" id="footer-design-services">
                                 <a href="#">Free Interior Design</a>
                                 <a href="#">Room Planner</a>
-                                <h6>Resources</h6>
+                                </div>
+                        </div>
+                        <div class="footer-section">
+                            <h6 data-footer-toggle="footer-resources">Resources</h6>
+                            <div class="footer_links" id="footer-resources">
                                 <a href="#"> JustAclick Credit Card</a>
                                 <a href="#"> Pay Bill Online</a>
                                 <a href="#"> View Online CatalogOrders</a>
@@ -782,28 +1280,33 @@
                                 <a href="#">Address Change</a>
                                 <a href="#">Gift Cards</a>
                                 <a href="#"> Do Not Sell Or Share My Personal Information</a>
-                                <h6>Shopping App</h6>
+                                </div>
+                        </div>
+                        <div class="footer-section">
+                            <h6 data-footer-toggle="footer-shopping-app">Shopping App</h6>
+                            <div class="footer_links" id="footer-shopping-app">
                                 <a href="#">"Everything you love about shopping with us, all in one convenient
                                     place."</a>
-                                <img src="assets/images/AppStoreDownload.svg" class="img-fluid" alt="app-store">
+                                <img loading="lazy" decoding="async" src="assets/images/AppStoreDownload.svg" class="img-fluid" alt="app-store">
                             </div>
+                        </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-12">
                         <div class="footer_wrapper__box footer_email">
                             <h6>Join our VIP list for inspiration, new arrivals & more.</h6>
-                            <div class="footer_input">
-                                <input type="email" placeholder="ENTER YOUR EMAIL">
-                                <button>Sign up</button>
-                            </div>
+                            <form class="newsletter-form" data-static-form="Email signup is currently unavailable. Please try again later."><label class="sr-only" for="newsletter-email">Email address</label><div class="footer_input">
+                                <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="Your email address" required>
+                                <button type="submit">Sign up</button>
+                            </div></form>
                             <span>UAE residents, please see the Financial Incentive Terms for terms. </span>
                             <div class="follow">
                                 <h6>follow us</h6>
                                 <div class="follow_links">
-                                    <a href="#"><i class='bx bxl-instagram'></i></a>
-                                    <a href="#"><i class='bx bxl-facebook'></i></a>
-                                    <a href="#"><i class='bx bxl-pinterest'></i></a>
-                                    <a href="#"><i class='bx bxl-youtube'></i></a>
+                                    <a href="#" aria-label="instagram"><i class="bx bxl-instagram" aria-hidden="true"></i></a>
+                                    <a href="#" aria-label="facebook"><i class="bx bxl-facebook" aria-hidden="true"></i></a>
+                                    <a href="#" aria-label="pinterest"><i class="bx bxl-pinterest" aria-hidden="true"></i></a>
+                                    <a href="#" aria-label="youtube"><i class="bx bxl-youtube" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -822,147 +1325,12 @@
         </div>
     </footer>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="assets/js/filter.js"></script>
-    <script src="assets/js/index.js"></script>
-
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-    <script>
-        jQuery(".card__inner").each(function () {
-            var slider = jQuery(this).find(".media_hover");
-
-            if (slider && jQuery(window).width() > 320.99) {
-                slider.slick({
-                    autoplay: false,
-                    arrows: false,
-                    dots: true,
-                    autoplaySpeed: 500,
-                    speed: 500,
-                    cssEase: "linear",
-                });
-
-                jQuery(this).hover(
-                    function () {
-                        slider.slick("slickPlay");
-                    },
-                    function () {
-                        slider.slick("slickGoTo", 0, true);
-                        slider.slick("slickPause");
-                    }
-                );
-            }
-
-        });
-    </script>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper2", {
-            slidesPerView: 5,
-            // centeredSlides: true,
-            spaceBetween: 20, // Add space between slides
-            slidesPerGroupSkip: 0,
-            grabCursor: true,
-            keyboard: {
-                enabled: true,
-            },
-            breakpoints: {
-                1400: {
-                    slidesPerView: 5,
-                    slidesPerGroup: 2,
-                },
-                1200: {
-                    slidesPerView: 3,
-                    slidesPerGroup: 2,
-                },
-                992: {
-                    slidesPerView: 3,
-                    slidesPerGroup: 2,
-                },
-                769: {
-                    slidesPerView: 3,
-                    slidesPerGroup: 2,
-                },
-                576: {
-                    slidesPerView: 2,
-                    slidesPerGroup: 1,
-                },
-                350: {
-                    slidesPerView: 1,
-                    slidesPerGroup: 1,
-                },
-            },
-            scrollbar: {
-                el: ".swiper-scrollbar",
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper3", {
-            slidesPerView: 4,
-            // centeredSlides: true,
-            spaceBetween: 20, // Add space between slides
-            slidesPerGroupSkip: 0,
-            grabCursor: true,
-            keyboard: {
-                enabled: true,
-            },
-            breakpoints: {
-                1400: {
-                    slidesPerView: 5,
-                    slidesPerGroup: 2,
-                },
-                1200: {
-                    slidesPerView: 3,
-                    slidesPerGroup: 2,
-                },
-                992: {
-                    slidesPerView: 3,
-                    slidesPerGroup: 2,
-                },
-                769: {
-                    slidesPerView: 3,
-                    slidesPerGroup: 2,
-                },
-                576: {
-                    slidesPerView: 2,
-                    slidesPerGroup: 1,
-                },
-                350: {
-                    slidesPerView: 1,
-                    slidesPerGroup: 1,
-                },
-            },
-            scrollbar: {
-                el: ".swiper-scrollbar",
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
-
+    <script src="assets/js/index.js" defer></script>
+    <script src="assets/js/filter.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="assets/js/carousels.js" defer></script>
 </body>
 
 </html>

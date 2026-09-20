@@ -1,39 +1,23 @@
-
-
-// Toggle the filter sidebar
-let filterBtn = document.querySelector('.filter');
-let filterSlide = document.querySelector('.filter_sidebar');
-let filterClose = document.querySelector('.close');
-
-if (filterBtn && filterSlide && filterClose) {
-    filterBtn.addEventListener('click', () => {
-        filterSlide.classList.toggle('active');
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.querySelector('.filter_sidebar');
+    if (!sidebar) return;
+    const setOpen = SiteUI.drawer(sidebar, document.querySelector('.filter'), sidebar.querySelector('.close'), 'Product filters');
+    sidebar.querySelectorAll('.filter_content__box').forEach((box, index) => {
+        const heading = box.querySelector('.filter_heading');
+        const panel = box.querySelector('.filter_select');
+        panel.id = `filter-options-${index}`;
+        panel.hidden = true;
+        heading.setAttribute('aria-controls', panel.id);
+        heading.setAttribute('aria-expanded', 'false');
+        heading.addEventListener('click', () => {
+            panel.hidden = !panel.hidden;
+            box.classList.toggle('show', !panel.hidden);
+            heading.setAttribute('aria-expanded', String(!panel.hidden));
+        });
     });
-
-    filterClose.addEventListener('click', () => {
-        filterSlide.classList.toggle('active');
-    });
-}
-
-// Toggle filter content boxes
-let filterBoxes = document.querySelectorAll('.filter_content__box');
-filterBoxes.forEach((box) => {
-    box.addEventListener('click', function () {
-        this.classList.toggle('show');
-    });
-});
-
-// Toggle purchase type inputs
-let size = document.querySelectorAll('.purchase_type__input');
-size.forEach((input) => {
-    input.addEventListener('click', function () {
-        this.classList.toggle('active-btn');
-    });
-});
-
-
-document.querySelectorAll('.filter_select__input').forEach(function (input) {
-    input.addEventListener('click', function (event) {
-        event.stopPropagation();
+    sidebar.querySelector('.show-btn button')?.addEventListener('click', () => {
+        // The source catalog has no metadata to apply these options reliably.
+        if (sidebar.querySelector('input:checked')) SiteUI.status(document.querySelector('.product_box__content'), 'These filters are currently unavailable. You can browse the collection or search by product name.');
+        setOpen?.(false);
     });
 });

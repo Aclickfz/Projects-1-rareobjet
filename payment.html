@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="assets/css/payment.css">
     <link rel="stylesheet" href="assets/css/cart.css">
     <link rel="stylesheet" href="assets/css/blogs.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
 
      <link rel="icon" type="image/png" sizes="32x32" href="assets/images/Logo/favicon/favicon-32x32.png">
      <link rel="icon" type="image/png" sizes="16x16" href="assets/images/Logo/favicon/favicon-16x16.png">
@@ -33,7 +32,7 @@
 
      <link rel="manifest" href="assets/images/Logo/favicon/manifest.json">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/vendor/boxicons/css/boxicons.min.css">
     <link rel="stylesheet" href="assets/css/design.css">
 </head>
 
@@ -792,7 +791,7 @@
                     <div class="col-xl-7 col-lg-6">
                         <div class="payment_left">
                             <h3>delivery</h3>
-                            <form action="" data-static-form="Online checkout is currently unavailable. Please contact us for help with your order.">
+                            <form action="" id="checkout-form">
                                 <div class="payment_form">
                                     <div class="form_input">
                                         <div class="field"><label for="given-name">First Name</label><input id="given-name" name="given-name" autocomplete="given-name" type="text" placeholder="First Name" required></div>
@@ -819,36 +818,8 @@
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-6">
-                        <div class="payment_right">
-                            <div class="payment_img">
-                                <div class="customer_product">
-                                    <img decoding="async" src="assets/images/img2.jpeg" class="img-fluid" alt="">
-                                    <div class="cart_number">
-                                        <p>1</p>
-                                    </div>
-                                </div>
-                                <div class="product_name">
-                                    <h6>Black & Red Hand Embroidery Wool Phiran</h6>
-                                    <div class="product_price">
-                                        <h3>RS. 999.00</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="subtotal">
-                                <div class="subtotal_box">
-                                    <h6>subtotal</h6>
-                                    <p>RS. 999.00</p>
-                                </div>
-                                <div class="subtotal_box">
-                                    <h6>shipping</h6>
-                                    <p>free shipping</p>
-                                </div>
-                                <div class="subtotal_box">
-                                    <h6>total</h6>
-                                    <p>RS. 999.00</p>
-                                </div>
-
-                            </div>
+                        <div class="payment_right" id="checkout-summary">
+                            <p class="ui-status">Loading order summary…</p>
                         </div>
                     </div>
                 </div>
@@ -963,6 +934,9 @@
         </div>
     </footer>
 
+        <script src="assets/js/api.js" defer></script>
+    <script src="assets/js/auth-ui.js" defer></script>
+    <script src="assets/js/shop.js" defer></script>
     <script src="assets/js/index.js" defer></script>
 </body>
 

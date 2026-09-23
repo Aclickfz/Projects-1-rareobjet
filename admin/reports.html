@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-shell" id="app"></div>
+  <script src="js/admin-common.js"></script>
+  <script>
+    (async () => {
+      const { requireAdmin, nav, bindLogout, api, formatInr } = AdminApp;
+      await requireAdmin();
+      const params = new URLSearchParams(location.search);
+      const from = params.get('from') || '';
+      const to = params.get('to') || '';
+      const qs = new URLSearchParams();
+      if (from) qs.set('from', from);
+      if (to) qs.set('to', to);
+      const data = await api('/api/admin/reports/sales' + (qs.toString() ? `?${qs}` : ''));
+      document.getElementById('app').innerHTML = `
+        ${nav('reports.html')}
+        <main class="admin-main">
+          <h2>Sales reports</h2>
+          <form class="admin-toolbar" method="get">
+            <label>From <input type="date" name="from" value="${from}"></label>
+            <label>To <input type="date" name="to" value="${to}"></label>
+            <button class="btn" type="submit">Filter</button>
+          </form>
+          <h3>Daily sales</h3>
+          <table class="admin-table">
+            <thead><tr><th>Day</th><th>Orders</th><th>Revenue</th></tr></thead>
+            <tbody>
+              ${data.daily.map(d => `<tr><td>${d.day}</td><td>${d.orders}</td><td>${formatInr(d.revenue)}</td></tr>`).join('') || '<tr><td colspan="3">No data</td></tr>'}
+            </tbody>
+          </table>
+          <h3 style="margin-top:24px">Top products</h3>
+          <table class="admin-table">
+            <thead><tr><th>Product</th><th>Qty sold</th><th>Revenue</th></tr></thead>
+            <tbody>
+              ${data.topProducts.map(p => `<tr><td>${p.name}</td><td>${p.qty_sold}</td><td>${formatInr(p.revenue)}</td></tr>`).join('') || '<tr><td colspan="3">No data</td></tr>'}
+            </tbody>
+          </table>
+        </main>`;
+      bindLogout();
+    })().catch(() => {});
+  </script>
+</body>
+</html>

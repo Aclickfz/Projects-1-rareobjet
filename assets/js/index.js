@@ -224,18 +224,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         wrapper.append(toggle);
     });
-    // Placeholder forms have no service endpoint; never report a successful transaction.
-    document.querySelectorAll('form[data-static-form]').forEach(form => form.addEventListener('submit', event => {
-        event.preventDefault();
-        SiteUI.status(form, form.dataset.staticForm);
-    }));
+    // Placeholder newsletter / remaining static forms only
+    document.querySelectorAll('form[data-static-form]').forEach(form => {
+        if (form.classList.contains('sign_form') || form.closest('.payment_left')) return;
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            SiteUI.status(form, form.dataset.staticForm);
+        });
+    });
 
     document.querySelectorAll('.purchase-quantity, .cart-quantity__num').forEach(group => {
+        if (document.body.classList.contains('page-cart')) return;
         const input = group.querySelector('input');
+        if (!input) return;
         const normalize = () => {
             input.value = Math.min(99, Math.max(1, Math.trunc(Number(input.value)) || 1));
-            group.querySelector('[data-step="-1"]').disabled = Number(input.value) <= 1;
-            group.querySelector('[data-step="1"]').disabled = Number(input.value) >= 99;
+            const down = group.querySelector('[data-step="-1"]');
+            const up = group.querySelector('[data-step="1"]');
+            if (down) down.disabled = Number(input.value) <= 1;
+            if (up) up.disabled = Number(input.value) >= 99;
         };
         group.querySelectorAll('[data-step]').forEach(button => button.addEventListener('click', () => {
             input.value = Number(input.value) + Number(button.dataset.step);
@@ -245,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
         normalize();
     });
     const cart = document.querySelector('.cart_wrapper__content-details');
-    if (cart) {
+    if (cart && !window.JustAclick) {
         const total = document.querySelector('.checkout-section_content h6');
         const money = number => `Rs. ${number.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         cart.querySelectorAll('.table_flax').forEach(row => {
@@ -285,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const query = new URLSearchParams(location.search).get('q')?.trim();
-    if (query && document.querySelector('.product_box')) {
+    if (query && document.querySelector('.product_box') && !window.JustAclick) {
         let count = 0;
         document.querySelectorAll('.product_box .card__inner').forEach(card => {
             const matches = card.textContent.toLowerCase().includes(query.toLowerCase());
@@ -300,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.vertical_img button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
     }));
     const wishlist = document.querySelector('.whishlist_content');
-    if (wishlist) {
+    if (wishlist && !window.JustAclick) {
         const updateCount = () => {
             const count = wishlist.querySelectorAll('.whishlist-box').length;
             document.querySelector('.whishlist_header__left p').textContent = `${count} ${count === 1 ? 'item' : 'items'}`;
@@ -316,6 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
         updateCount();
     }
+    if (!window.JustAclick) {
     document.querySelectorAll('.order-now > a, .order-now > button').forEach(button => button.addEventListener('click', event => {
         if (button.tagName === 'A' && button.getAttribute('href') !== '#') return;
         event.preventDefault();
@@ -324,9 +332,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.catalog-heart').forEach(button => button.addEventListener('click', () => {
         SiteUI.status(document.querySelector('.product_box__content'), 'Saving favourites is currently unavailable. Please try again later.');
     }));
+    }
     const sort = document.querySelector('.product_row__right select');
     const grid = document.querySelector('.product_box__content > .row');
-    if (sort && grid) {
+    if (sort && grid && !window.JustAclick) {
         const originalOrder = [...grid.children];
         const price = card => Number(card.querySelector('.card__inner_content span')?.textContent.replace(/[^\d.]/g, '')) || 0;
         sort.addEventListener('change', () => {

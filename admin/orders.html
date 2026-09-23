@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders | Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-shell" id="app"></div>
+  <script src="js/admin-common.js"></script>
+  <script>
+    (async () => {
+      const { requireAdmin, nav, bindLogout, api, formatInr } = AdminApp;
+      await requireAdmin();
+      const status = new URLSearchParams(location.search).get('status') || '';
+      const { orders } = await api('/api/admin/orders' + (status ? `?status=${status}` : ''));
+      document.getElementById('app').innerHTML = `
+        ${nav('orders.html')}
+        <main class="admin-main">
+          <h2>Orders</h2>
+          <div class="admin-toolbar">
+            <a class="btn ghost" href="orders.html">All</a>
+            ${['pending','confirmed','shipped','delivered','cancelled'].map(s =>
+              `<a class="btn ghost" href="orders.html?status=${s}">${s}</a>`).join('')}
+          </div>
+          <table class="admin-table">
+            <thead><tr><th>Order</th><th>Customer</th><th>Status</th><th>Payment</th><th>Total</th><th>Invoice</th><th></th></tr></thead>
+            <tbody>
+              ${orders.map(o => `<tr>
+                <td>${o.order_number}</td>
+                <td>${o.customer_name}<div style="font-size:.8rem;color:#62675f">${o.customer_email}</div></td>
+                <td>${o.status}</td>
+                <td>${o.payment_status}</td>
+                <td>${formatInr(o.total)}</td>
+                <td>${o.invoice_number || '—'}</td>
+                <td><a href="order-detail.html?id=${o.id}">Manage</a></td>
+              </tr>`).join('') || '<tr><td colspan="7">No orders</td></tr>'}
+            </tbody>
+          </table>
+        </main>`;
+      bindLogout();
+    })().catch(() => {});
+  </script>
+</body>
+</html>

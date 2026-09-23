@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-shell" id="app"></div>
+  <script src="js/admin-common.js"></script>
+  <script>
+    (async () => {
+      const { requireAdmin, nav, bindLogout, api, formatInr } = AdminApp;
+      await requireAdmin();
+      const [{ products }, { categories }] = await Promise.all([
+        api('/api/admin/products'),
+        api('/api/admin/categories')
+      ]);
+
+      function render(list) {
+        document.getElementById('app').innerHTML = `
+          ${nav('products.html')}
+          <main class="admin-main">
+            <h2>Products</h2>
+            <div class="admin-toolbar">
+              <a class="btn" href="product-form.html">Add product</a>
+              <input type="search" id="q" placeholder="Search…" style="padding:8px 10px;border:1px solid #dedfd7;border-radius:6px;">
+            </div>
+            <table class="admin-table">
+              <thead><tr><th></th><th>Name</th><th>Price</th><th>Stock</th><th>Active</th><th></th></tr></thead>
+              <tbody>
+                ${list.map(p => `<tr>
+                  <td><img class="thumb" src="../${(p.primary_image && p.primary_image.path) || 'assets/images/img2.jpeg'}" alt=""></td>
+                  <td>${p.name}<div style="color:#62675f;font-size:.8rem">${p.category_name || ''}</div></td>
+                  <td>${formatInr(p.price)}</td>
+                  <td>${p.stock_qty}</td>
+                  <td>${p.is_active ? 'Yes' : 'No'}</td>
+                  <td><a href="product-form.html?id=${p.id}">Edit</a></td>
+                </tr>`).join('')}
+              </tbody>
+            </table>
+          </main>`;
+        bindLogout();
+        document.getElementById('q').addEventListener('input', (e) => {
+          const q = e.target.value.toLowerCase();
+          render(products.filter(p => p.name.toLowerCase().includes(q) || (p.sku || '').toLowerCase().includes(q)));
+        });
+      }
+      render(products);
+    })().catch(() => {});
+  </script>
+</body>
+</html>

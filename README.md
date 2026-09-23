@@ -1,33 +1,57 @@
-# JustAclick storefront
+# JustAclick — dynamic ecommerce
 
-Thirteen static HTML pages, modernized in place. Existing routes, Bootstrap layout, local business images and product content are retained. No production build step is required.
+Node.js + MySQL backend with the existing HTML/CSS storefront. Currency is **INR** only. Checkout is **Cash on Delivery**; inventory decreases when an admin **confirms** an order.
 
-## Preview
+## Requirements
 
-Run `node scripts/preview.cjs`, then open http://127.0.0.1:4173. This localhost development server supports video range requests. Deploy the root HTML files and `assets/` to your static host.
+- Node.js 18+
+- MySQL 8 (local or Docker)
 
-## Editing
+### MySQL via Docker (optional)
 
-- `assets/css/design.css`: shared design tokens and responsive component styles, loaded after the existing stylesheets.
-- `assets/css/global.css`: local font registration and base styles.
-- `assets/js/index.js`: navigation, footer, search, cart, gallery and form interactions.
-- `assets/js/filter.js`: accessible filter drawer.
-- `assets/js/carousels.js`: shared Slick/Swiper initialization and reduced-motion support.
-- `partials/footer.html`: footer source. Run `node scripts/sync-footer.cjs` after editing it to update every page.
-- `partials/header.html`: shared desktop/mobile navigation. Run `node scripts/sync-header.cjs` after editing it. The mobile drawer is used below 1200px; desktop dropdowns support hover, click, Arrow Down and Escape.
+```bash
+docker run -d --name justaclick-mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=justaclick -p 3306:3306 mysql:8.0
+```
 
-Only pages using carousels load their existing vendor libraries. The Tailwind browser runtime, duplicate library imports, unused animation CSS and remote font requests have been removed.
+## Setup
 
-## Checks
+```bash
+cd server
+copy .env.example .env   # Windows; or cp .env.example .env
+npm install
+npm run migrate
+npm run seed
+npm start
+```
 
-Install the optional testing tool with `npm install --prefix .tools --no-save --package-lock=false playwright`, then run `node scripts/browser-check.cjs`. This uses installed Chrome and checks 13 pages at 11 widths (320–2560px), images, references, control names, layouts and key interactions. Reports/screenshots go into ignored `artifacts/`.
+Open [http://localhost:3000](http://localhost:3000).
 
-Basic checks: `node --check assets/js/index.js`, `node --check assets/js/filter.js`, `node --check assets/js/carousels.js`, and `git diff --check`.
+### Default admin
 
-## Integration status
+- Email: `admin@justaclick.local`
+- Password: `Admin@12345` (change in `.env`)
 
-There is no backend, authentication provider, payment processor, newsletter service, inventory API or database in this repository. Placeholder forms display unavailable feedback; remove `data-static-form` when connecting real handlers. Cart changes and favourite removal affect the current rendered page only. Search/sorting use the static catalog. Filter labels lack matching product metadata and are not represented as successfully applied.
+Admin panel: [http://localhost:3000/admin/](http://localhost:3000/admin/)
 
-Existing `#` links, social profiles, legal policies, app-store destinations, placeholder copy, repeated product names, mixed currencies and contact details need real business information before launch. They were not invented or rewritten. Chrome checks do not replace Safari/Firefox, real-device or full accessibility testing.
+## Customer flow
 
-See `docs/UI-AUDIT.md` for findings and implementation decisions.
+1. Browse `product.html` (API-loaded cards)
+2. Open product details → Add to cart / Buy now
+3. Cart → Checkout (`payment.html`) — login required
+4. Place COD order → order confirmation + invoice
+5. Admin confirms order → stock reduces
+
+## Project layout
+
+- Root HTML + `assets/` — storefront UI (unchanged visual template)
+- `server/` — Express API, migrations, seed
+- `admin/` — dashboard, products, inventory, orders, invoices, CRM, reports
+- `uploads/products/` — admin-uploaded images
+
+## API overview
+
+- `/api/auth/*` — register, login, logout, me
+- `/api/products`, `/api/categories`
+- `/api/cart`, `/api/wishlist`
+- `/api/orders` — place, mine, track, admin status updates
+- `/api/admin/*` — products CRUD, inventory, orders, customers, reports

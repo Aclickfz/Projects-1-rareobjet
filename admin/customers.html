@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customers CRM | Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-shell" id="app"></div>
+  <script src="js/admin-common.js"></script>
+  <script>
+    (async () => {
+      const { requireAdmin, nav, bindLogout, api, formatInr } = AdminApp;
+      await requireAdmin();
+      const q = new URLSearchParams(location.search).get('q') || '';
+      const id = new URLSearchParams(location.search).get('id');
+
+      if (id) {
+        const { customer, orders } = await api(`/api/admin/customers/${id}`);
+        document.getElementById('app').innerHTML = `
+          ${nav('customers.html')}
+          <main class="admin-main">
+            <h2>${customer.name}</h2>
+            <p>${customer.email} · ${customer.phone || 'No phone'}</p>
+            <form class="admin-form" id="crm">
+              <label>Phone <input name="phone" value="${customer.phone || ''}"></label>
+              <label>CRM notes <textarea name="notes" rows="4">${customer.notes || ''}</textarea></label>
+              <button class="btn" type="submit">Save</button>
+              <p class="admin-status" id="status"></p>
+            </form>
+            <h3>Orders</h3>
+            <table class="admin-table">
+              <thead><tr><th>Order</th><th>Status</th><th>Total</th><th>Date</th></tr></thead>
+              <tbody>
+                ${orders.map(o => `<tr>
+                  <td><a href="order-detail.html?id=${o.id}">${o.order_number}</a></td>
+                  <td>${o.status}</td><td>${formatInr(o.total)}</td><td>${String(o.created_at).slice(0,10)}</td>
+                </tr>`).join('') || '<tr><td colspan="4">No orders</td></tr>'}
+              </tbody>
+            </table>
+            <p style="margin-top:16px"><a href="customers.html">← Back</a></p>
+          </main>`;
+        bindLogout();
+        document.getElementById('crm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const fd = new FormData(e.target);
+          try {
+            await api(`/api/admin/customers/${id}`, {
+              method: 'PATCH',
+              body: { phone: fd.get('phone'), notes: fd.get('notes') }
+            });
+            document.getElementById('status').textContent = 'Saved';
+          } catch (err) {
+            document.getElementById('status').textContent = err.message;
+          }
+        });
+        return;
+      }
+
+      const { customers } = await api('/api/admin/customers' + (q ? `?q=${encodeURIComponent(q)}` : ''));
+      document.getElementById('app').innerHTML = `
+        ${nav('customers.html')}
+        <main class="admin-main">
+          <h2>Customers CRM</h2>
+          <form class="admin-toolbar" method="get">
+            <input name="q" value="${q}" placeholder="Search name, email, phone" style="padding:8px 10px;border:1px solid #dedfd7;border-radius:6px;min-width:240px">
+            <button class="btn" type="submit">Search</button>
+          </form>
+          <table class="admin-table">
+            <thead><tr><th>Name</th><th>Email</th><th>Orders</th><th>Lifetime value</th><th>Last order</th><th></th></tr></thead>
+            <tbody>
+              ${customers.map(c => `<tr>
+                <td>${c.name}</td><td>${c.email}</td><td>${c.orders_count}</td>
+                <td>${formatInr(c.lifetime_value)}</td>
+                <td>${c.last_order_at ? String(c.last_order_at).slice(0,10) : '—'}</td>
+                <td><a href="customers.html?id=${c.id}">Open</a></td>
+              </tr>`).join('') || '<tr><td colspan="6">No customers</td></tr>'}
+            </tbody>
+          </table>
+        </main>`;
+      bindLogout();
+    })().catch(() => {});
+  </script>
+</body>
+</html>

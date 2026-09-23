@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | JustAclick</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-shell" id="app"></div>
+  <script src="js/admin-common.js"></script>
+  <script>
+    (async () => {
+      const { requireAdmin, nav, bindLogout, api, formatInr } = AdminApp;
+      await requireAdmin();
+      const data = await api('/api/admin/dashboard');
+      document.getElementById('app').innerHTML = `
+        ${nav('index.html')}
+        <main class="admin-main">
+          <h2>Dashboard</h2>
+          <div class="admin-cards">
+            <div class="admin-card"><div class="label">Orders</div><div class="value">${data.stats.orders_total}</div></div>
+            <div class="admin-card"><div class="label">Pending</div><div class="value">${data.stats.orders_pending}</div></div>
+            <div class="admin-card"><div class="label">Revenue</div><div class="value">${formatInr(data.stats.revenue)}</div></div>
+            <div class="admin-card"><div class="label">Customers</div><div class="value">${data.stats.customers}</div></div>
+            <div class="admin-card"><div class="label">Low stock</div><div class="value">${data.stats.low_stock}</div></div>
+          </div>
+          <h3>Recent orders</h3>
+          <table class="admin-table">
+            <thead><tr><th>Order</th><th>Customer</th><th>Status</th><th>Total</th><th></th></tr></thead>
+            <tbody>
+              ${data.recentOrders.map(o => `<tr>
+                <td>${o.order_number}</td><td>${o.customer_name}</td><td>${o.status}</td>
+                <td>${formatInr(o.total)}</td>
+                <td><a href="order-detail.html?id=${o.id}">Open</a></td>
+              </tr>`).join('') || '<tr><td colspan="5">No orders yet</td></tr>'}
+            </tbody>
+          </table>
+          <h3 style="margin-top:24px">Low stock</h3>
+          <table class="admin-table">
+            <thead><tr><th>Product</th><th>SKU</th><th>Stock</th></tr></thead>
+            <tbody>
+              ${data.lowStock.map(p => `<tr><td>${p.name}</td><td>${p.sku || '—'}</td><td>${p.stock_qty}</td></tr>`).join('') || '<tr><td colspan="3">All good</td></tr>'}
+            </tbody>
+          </table>
+        </main>`;
+      bindLogout();
+    })().catch(() => {});
+  </script>
+</body>
+</html>

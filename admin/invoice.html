@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice | Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <style>
+    @media print {
+      .admin-sidebar, .no-print { display: none !important; }
+      .admin-main { padding: 0; }
+    }
+    .invoice-box { background:#fff; border:1px solid #dedfd7; padding:24px; max-width:720px; }
+  </style>
+</head>
+<body class="admin-body">
+  <div class="admin-shell" id="app"></div>
+  <script src="js/admin-common.js"></script>
+  <script>
+    (async () => {
+      const { requireAdmin, nav, bindLogout, api, formatInr } = AdminApp;
+      await requireAdmin();
+      const id = new URLSearchParams(location.search).get('id');
+      const { order } = await api(`/api/admin/orders/${id}`);
+      document.getElementById('app').innerHTML = `
+        ${nav('orders.html')}
+        <main class="admin-main">
+          <div class="admin-toolbar no-print">
+            <button class="btn" onclick="window.print()">Print</button>
+            <a class="btn ghost" href="order-detail.html?id=${order.id}">Back</a>
+          </div>
+          <div class="invoice-box">
+            <h2>JustAclick Invoice</h2>
+            <p><strong>${order.invoice_number || 'INV'}</strong></p>
+            <p>Order ${order.order_number} · ${String(order.created_at).slice(0,10)}</p>
+            <p>Bill to: ${order.given_name} ${order.family_name}<br>
+              ${order.street_address}<br>${order.city} ${order.postal_code}</p>
+            <table class="admin-table">
+              <thead><tr><th>Item</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead>
+              <tbody>
+                ${order.items.map(i => `<tr>
+                  <td>${i.name_snapshot}</td><td>${i.qty}</td>
+                  <td>${formatInr(i.price_snapshot)}</td><td>${formatInr(i.line_total)}</td>
+                </tr>`).join('')}
+              </tbody>
+            </table>
+            <p>Subtotal ${formatInr(order.subtotal)}</p>
+            <p>Shipping ${formatInr(order.shipping)}</p>
+            <p><strong>Total ${formatInr(order.total)}</strong> · COD · ${order.payment_status}</p>
+          </div>
+        </main>`;
+      bindLogout();
+    })().catch(() => {});
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order detail | Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-shell" id="app"></div>
+  <script src="js/admin-common.js"></script>
+  <script>
+    (async () => {
+      const { requireAdmin, nav, bindLogout, api, formatInr } = AdminApp;
+      await requireAdmin();
+      const id = new URLSearchParams(location.search).get('id');
+      const { order } = await api(`/api/admin/orders/${id}`);
+      const nextMap = {
+        pending: ['confirmed', 'cancelled'],
+        confirmed: ['shipped', 'cancelled'],
+        shipped: ['delivered'],
+        delivered: [],
+        cancelled: []
+      };
+      document.getElementById('app').innerHTML = `
+        ${nav('orders.html')}
+        <main class="admin-main">
+          <h2>Order ${order.order_number}</h2>
+          <p>Customer: ${order.customer_name} (${order.customer_email})</p>
+          <p>Status: <strong>${order.status}</strong> · Payment: ${order.payment_status} · Invoice: ${order.invoice_number || '—'}</p>
+          <p>Ship to: ${order.given_name} ${order.family_name}, ${order.street_address}, ${order.city} ${order.postal_code}</p>
+          ${order.notes ? `<p>Notes: ${order.notes}</p>` : ''}
+          <table class="admin-table">
+            <thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Line</th></tr></thead>
+            <tbody>
+              ${order.items.map(i => `<tr>
+                <td>${i.name_snapshot}</td><td>${i.qty}</td>
+                <td>${formatInr(i.price_snapshot)}</td><td>${formatInr(i.line_total)}</td>
+              </tr>`).join('')}
+            </tbody>
+          </table>
+          <p style="margin-top:12px"><strong>Total ${formatInr(order.total)}</strong> (incl. shipping ${formatInr(order.shipping)})</p>
+          <div class="admin-toolbar" id="actions">
+            ${(nextMap[order.status] || []).map(s => `<button class="btn" data-status="${s}">Mark ${s}</button>`).join('')}
+            <a class="btn secondary" href="invoice.html?id=${order.id}" target="_blank">Print invoice</a>
+          </div>
+          <p class="admin-status" id="status"></p>
+        </main>`;
+      bindLogout();
+      document.querySelectorAll('[data-status]').forEach(btn => btn.addEventListener('click', async () => {
+        try {
+          await api(`/api/orders/${order.id}/status`, { method: 'PATCH', body: { status: btn.dataset.status } });
+          location.reload();
+        } catch (err) {
+          document.getElementById('status').textContent = err.message;
+        }
+      }));
+    })().catch(() => {});
+  </script>
+</body>
+</html>

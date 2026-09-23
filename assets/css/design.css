@@ -316,7 +316,7 @@ body.drawer-open { overflow: hidden; }
 .checkout-section_content p { font-size: 13px; color: var(--muted-color); }
 .my-checkout a { width: 100%; background: var(--main-color); border: 1px solid var(--main-color); }
 
-/* The same footer is rendered into every static page by scripts/sync-footer.cjs. */
+/* Shared footer styles; footer HTML is included directly in every page. */
 .footer_wrapper { background: #e6e3df; padding-block: clamp(2.5rem, 5vw, 4.5rem) 1.5rem; }
 .footer_wrapper .container { width: 100%; max-width: var(--content-width); }
 .footer_wrapper .row { row-gap: 2rem; }

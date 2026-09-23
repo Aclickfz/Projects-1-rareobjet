@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice | JustAclick</title>
+  <meta name="theme-color" content="#303e34">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/design.css">
+  <style>
+    @media print { .no-print { display: none !important; } }
+    .invoice-sheet { background:#fff; border:1px solid var(--border-color,#dedfd7); padding:28px; max-width:720px; margin:24px auto; }
+  </style>
+</head>
+<body>
+  <div class="container global_section">
+    <div class="no-print" style="margin:16px 0;">
+      <button class="global_btn" onclick="window.print()">Print</button>
+      <a class="global_btn" href="orders.html">Back to orders</a>
+    </div>
+    <div class="invoice-sheet" id="invoice"><p>Loading…</p></div>
+  </div>
+  <script src="assets/js/api.js"></script>
+  <script>
+    (async () => {
+      const JA = window.JustAclick;
+      const id = new URLSearchParams(location.search).get('id');
+      try {
+        const { order } = await JA.api('/api/orders/' + id);
+        document.getElementById('invoice').innerHTML = `
+          <h1>JustAclick Invoice</h1>
+          <p><strong>${order.invoice_number || ''}</strong></p>
+          <p>Order ${order.order_number} · ${String(order.created_at).slice(0,10)}</p>
+          <p>${order.given_name} ${order.family_name}<br>${order.street_address}<br>${order.city} ${order.postal_code}</p>
+          <ul>${order.items.map(i => `<li>${i.name_snapshot} × ${i.qty} — ${JA.formatInr(i.line_total)}</li>`).join('')}</ul>
+          <p>Subtotal ${JA.formatInr(order.subtotal)}</p>
+          <p>Shipping ${JA.formatInr(order.shipping)}</p>
+          <p><strong>Total ${JA.formatInr(order.total)}</strong> · COD · ${order.payment_status}</p>`;
+      } catch (err) {
+        document.getElementById('invoice').textContent = err.message;
+      }
+    })();
+  </script>
+</body>
+</html>

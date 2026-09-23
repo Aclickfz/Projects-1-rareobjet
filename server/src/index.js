@@ -52,6 +52,7 @@ app.use((err, _req, res, _next) => {
   res.status(status).json({ error: err.message || 'Server error' });
 });
 
-app.listen(port, () => {
-  console.log(`JustAclick server running at http://localhost:${port}`);
+// Hostinger / cloud: bind all interfaces (PORT comes from host env)
+app.listen(port, '0.0.0.0', () => {
+  console.log(`JustAclick server running on port ${port}`);
 });
